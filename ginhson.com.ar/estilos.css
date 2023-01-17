@@ -1,0 +1,40 @@
+body{ background:#ccc; margin:10px 0 0 0;}
+
+h2{ font-size:11px; text-transform:uppercase; color:#48742a; font-weight:bold; margin:0; padding:0;}
+.naranjaoscuro {
+	font: bold 10px verdana;
+	color: #48742a;
+}
+.grisclaro {
+	font: normal 10px verdana;
+	color: 333333;
+}
+.grisclaro2 {
+	font: normal 10px verdana;
+	color: 666666;
+}
+.naranjaoclaro {
+	font: normal 10px verdana;
+	color: CC6600;
+}
+.mas_informacion , .bajar_driver  {
+	background-image: url(imagenes/ico_pdf.gif);
+	background-repeat: no-repeat;
+	padding-left: 33px;
+	height: 17px;
+	padding-top: 3px;
+	width: 120px;
+	display: block;
+	font-weight: normal;
+	text-decoration: none;
+	margin-right: 50px;
+	color: #666;
+	float: left;
+	margin-top: 10px;
+}
+.bajar_driver {
+	background-image: url(imagenes/ico_download.gif);
+}
+.mas_informacion:hover , .bajar_driver:hover  {
+text-decoration:underline;
+
