@@ -1,0 +1,57 @@
+<body>
+  {% block content %}
+  <div class="rectanguloAdopcion"> 
+    <div class= "adopcionInterior">
+  
+      <h1 id="cargar">Agregar productos</h1>
+    
+      <form action="{{url_for('agregarProductos')}}" method="POST" enctype="multipart/form-data">
+    
+        <p>{{mensaje}}</p>
+        <p>{{mensaje2}}</p>
+        <h3> Agregue un producto a la página </h3> 
+        
+        <label for="name">Ingrese el nombre: </label>
+        <input required type="text" id="nombre" name="nombre" /><br>
+        
+        <!-- check box linea -->
+        
+        <label for="tipoLinea">Elija la línea que corresponda: </label><br>
+        <div class="checkboxs">
+        <input class= "checkBoxLinea1" type="checkbox" id="Seguridad" name="linea" value='Seguridad' onclick="deseleccionar('Nautica', 'Industria', 'Dispositivos')"/><label class="label1" for="Seguridad" style="
+    margin-right: 50px;
+">Seguridad </label>
+        <input class= "checkBoxLinea2" type="checkbox" id="Nautica" name="linea" value='Nautica' onclick="deseleccionar('Seguridad', 'Industria', 'Dispositivos')"/> <label class="label2"for="Nautica" style="
+    margin-right: 50px;
+">Nautica </label> 
+          <input class= "checkBoxLinea3" type="checkbox" id="Industria" name="linea" value='Industria' onclick="deseleccionar('Seguridad', 'Nautica', 'Dispositivos')"/> <label class="label3"for="Industria" style="
+    margin-right: 50px;
+">Industria </label> 
+          <input class= "checkBoxLinea4" type="checkbox" id="Dispositivos" name="linea" value='Dispositivos' onclick="deseleccionar('Seguridad', 'Industria', 'Nautica')"/> <label class="label4"for="Dispositivos" >Dispositivos </label> 
+        </div>
+        <br>
+
+        
+        <label for="categoria">Ingrese la categoria: </label> 
+        <input required type="text" id="categoria" name="categoria" /><br>
+    
+           
+        <label for="información"> Ingrese la información del producto: </label> 
+        <input required type="text" id="informacion" name="informacion"/><br>
+    
+        
+        <input id="selecArchivo" required type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none" onchange="detectarImagen()"><br>
+        <button type="button" class="botonSelecArchivos">
+          <label for="selecArchivo" id="selecArchivoLabel"> Adjunte una imagen </label> 
+        </button>
+        <br>
+        <input type="submit" class = "botonAdmin" id="send-signup" value="Enviar" style ="margin-top: 6%;">
+      </form>
+    
+      <br/>
+      <!--<button type="button" class="botonAdmin" onclick="pagAnterior()"> Volver</button>-->
+      <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+    </div>
+  </div>
+{% endblock content %} 
+</body>

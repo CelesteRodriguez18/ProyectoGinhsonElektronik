@@ -57,6 +57,21 @@ label {
   color: #848484;
 }
 
+/* THA */
+
+.botonAdmin{
+    text-align: center;
+    background: #D88656;
+    border: #D88656;
+    color: #FFEEE4;
+    font-family: 'Pathway Gothic One', sans-serif;
+    margin-top: 2px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 180px;
+}
+
 /*nav nuestro*/
 nav{
   background: #3c6a20;
@@ -2840,5 +2855,103 @@ form textarea {
 .top-to a:hover {
   text-decoration: none;
 }
+
+.contenedorGrande{
+  background: #fff;
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedorChico{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  background: #3c6a20;
+  text-align: center;
+  border-radius: 10px;
+  width:40vw;
+  height: 50vh;
+  display: inline-block;
+  margin-top: 10vw;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "Muli", sans-serif;
+  font-size: 10px;
+  line-height: 3.5;
+  box-sizing: inherit;
+}
+
+.input-group-addon {
+    padding: 0.5rem 1rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #3c6a20;
+    text-align: center;
+    background-color: #619640;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: inline-block;
+  
+}
+
+.rectanguloUsuario{
+  display: flex;
+}
+
+.rectanguloContra{
+  display: flex;
+}
+
+.rectangulo {
+    display: block;
+  margin-left: auto;
+    border-radius: 10px;
+    width:20vw;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color:#3c6a20;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+
+.contenedorChico2 {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  display: inline-block;
+}
+
+.botonIngresar{
+  text-align: center;
+  border: #3c6a20;;
+  font-family: "Muli", sans-serif;
+  margin-top: 2px;
+  font-size: 15px;
+  color: #3c6a20;
+  text-align: center;
+  background-color: #619640;
+  width:8vw;
+  height: 4vh;
+}
+
+.tituloAdmin{
+  font-family: "Muli", sans-serif;
+  font-size: 30px;
+  color: #fff;
+}
+
 
 /*# sourceMappingURL=maps/style.css.map */
