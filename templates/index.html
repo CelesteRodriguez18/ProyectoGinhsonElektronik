@@ -5,7 +5,7 @@
 ================================-->
 
 <body>
-  {% block content %}
+{% block content %}
 	<section class="hero-area bg-1 text-center overly">
 		<!-- Container Start -->
 		<div class="container">
@@ -16,7 +16,8 @@
 						<h1>Desarrollos electrónicos</h1>
 						<p>A la medida de sus necesiades <br> y con la mejor tecnología a su alcance.</p>
 						<div class="short-popular-category-list text-center">
-							<img src="images/partner_logo.png" alt="" style="max-width: 250px;">
+							<img src="{{ url_for('static', filename='img/partner_logo.png') }}"alt="" style="max-width: 250px;">
+              
 						</div>
 
 					</div>
@@ -49,7 +50,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 					</p>
 				</div>
 				<div class="col-md-3 text-center">
-					<img src="images/pablo.jpeg" style="border-radius: 50%; margin-top: 50px;"
+					<img src= "{{ url_for('static', filename='img/pablo.jpeg') }}" style="border-radius: 50%; margin-top: 50px;"
 						class="img-fluid img-thumbnail" alt="...">
 				</div>
 			</div>
@@ -77,7 +78,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12" data-wow-delay="5s">
 							<div class="category-block bg-white">
 								<div class="header">
-									<img src="images/icons/hardware.png" alt="">
+									<img src= "{{ url_for('static', filename='img/icons/hardware.png') }}" alt="">
 									<h4>Diseño de Hardware</h4>
 								</div>
 								<p>
@@ -89,7 +90,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12">
 							<div class="category-block bg-white">
 								<div class="header">
-									<img src="images/icons/code.png" alt="">
+									<img src= "{{ url_for('static', filename='img/icons/code.png') }}" alt="">
 									<h4>Diseño de software</h4>
 								</div>
 								<p>
@@ -101,7 +102,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12">
 							<div class="category-block bg-white">
 								<div class="header">
-									<img src="images/icons/idea.png" alt="">
+									<img src= "{{ url_for('static', filename='img/icons/idea.png') }}" alt="">
 									<h4>Diseño llave en mano</h4>
 								</div>
 								<p>
@@ -113,7 +114,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12">
 							<div class="category-block bg-white">
 								<div class="header">
-									<img src="images/icons/viavility.png" alt="">
+									<img src="{{ url_for('static', filename='img/icons/viavility.png') }}"  alt="">
 									<h4>Estudio de viabilidad</h4>
 								</div>
 								<p>
@@ -125,7 +126,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12">
 							<div class="category-block bg-white">
 								<div class="header">
-									<img src="images/icons/estude.png" alt="">
+									<img src="{{ url_for('static', filename='img/icons/estude.png') }}" alt="">
 									<h4>Revisión de diseño</h4>
 								</div>
 								<p>
@@ -137,7 +138,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12">
 							<div class="category-block bg-white">
 								<div class="header">
-									<img src="images/icons/production.png" alt="">
+									<img src="{{ url_for('static', filename='img/icons/production.png') }}" alt="">
 									<h4>Producción</h4>
 								</div>
 								<p>
@@ -174,7 +175,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
 										<a href="single.html">
-											<img class="card-img-top img-fluid" src="images/products/products-1.jpg"
+											<img class="card-img-top img-fluid" src="img/products/products-1.jpg"
 												alt="Card image cap">
 										</a>
 									</div>
@@ -200,7 +201,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
 										<a href="single.html">
-											<img class="card-img-top img-fluid" src="images/products/products-2.jpg"
+											<img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/products/products-2.jpg') }}"
 												alt="Card image cap">
 										</a>
 									</div>
@@ -227,7 +228,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
 										<a href="single.html">
-											<img class="card-img-top img-fluid" src="images/products/products-3.jpg"
+											<img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/products/products-3.jpg') }}"
 												alt="Card image cap">
 										</a>
 									</div>
@@ -255,7 +256,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
 										<a href="single.html">
-											<img class="card-img-top img-fluid" src="images/products/products-2.jpg"
+											<img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/products/products-2.jpg') }}"
 												alt="Card image cap">
 										</a>
 									</div>
@@ -377,85 +378,13 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 					<div class="content-holder">
 						<h2>De la mano con la mejor tecnología</h2>
 						<h3>Somos diseñadores autorizados de Microchip.</h3>
-						<img src="images/partner_logo.png" style="max-width: 200px;" alt="">
+						<img src="{{ url_for('static', filename='img/partner_logo.png') }}" style="max-width: 200px;" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- Container End -->
 	</section>
-
-	<!--============================
-=            Footer            =
-=============================-->
-
-	<footer class="footer section section-sm">
-		<!-- Container Start -->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 col-md-7 offset-md-1 offset-lg-0">
-					<!-- About -->
-					<div class="block about">
-						<!-- footer logo -->
-						<img src="images/logo-footer.png" alt="">
-						<!-- description -->
-						<p class="alt-color">Firma que trabajaba para distintos clientes en el área de la industria
-							electrónica, mejorando la calidad de los productos fabricados y posicionando a la empresa
-							como una de las más reconocidas armadoras de productos electrónicos en dicho país. </p>
-					</div>
-				</div>
-				<!-- Link list -->
-				<div class="col-lg-2 offset-lg-1 col-md-3">
-					<div class="block">
-						<h4>Mapa del sitio</h4>
-						<ul>
-							<li><a href="#">Inicio</a></li>
-							<li><a href="#acercade">Quienes somos</a></li>
-							<li><a href="productos.html">Productos</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-2 offset-lg-1 col-md-3">
-					<div class="block">
-						<h4 style="color: black;">.</h4>
-						<ul>
-							<li><a href="#servicios">Servicios</a></li>
-							<li><a href="#contacto">Contacto</a></li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<!-- Container End -->
-	</footer>
-	<!-- Footer Bottom -->
-	<footer class="footer-bottom">
-		<!-- Container Start -->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-12">
-					<!-- Copyright -->
-					<div class="copyright">
-						<p>Copyright ©
-							<script>
-								var CurrentYear = new Date().getFullYear()
-								document.write(CurrentYear)
-							</script>. Todos los derechos reservados,
-					</div>
-				</div>
-				<!-- <div class="col-sm-6 col-12">
-					<a href="https://tecnoplug.com">tecnoplug.com</a>
-				</div> -->
-			</div>
-		</div>
-		<!-- Container End -->
-		<!-- To Top -->
-		<div class="top-to">
-			<a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
-		</div>
-	</footer>
 
 	<!-- JAVASCRIPTS -->
 	<script src="plugins/jQuery/jquery.min.js"></script>
@@ -472,7 +401,7 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
 		integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		crossorigin="anonymous" referrerpolicy="Fno-referrer"></script>
 
 	<!-- google map -->
 	<script
@@ -480,6 +409,6 @@ Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo g
 	<script src="plugins/google-map/gmap.js"></script>
 	<script src="js/script.js"></script>
     
-  {% endblock content %}  
+{% endblock content %}  
 </body>
 

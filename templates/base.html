@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<!-- SITE TITTLE -->
 	<meta charset="utf-8">
@@ -35,6 +36,8 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <!-- Iconos para hacer el logo del menu responsive-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -45,18 +48,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-          {% block nav %}
+        {% block nav %}
 					<nav class="navbar navbar-expand-lg navbar-light navigation">
-						<a class="navbar-brand" href="templates/index.html">
-              <img src="{{ url_for('static', filename='img/logo.png') }}">
+            <input type = "checkbox" id = "check">
+            <label for= "check" class= "checkbtn">
+              <i class="fas fa-bars"></i>
+            </label>
+            <a href = "#" class = "enlace"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class= "logo">
 						</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
-							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav ml-auto main-nav ">
+              <ul class="navbar-nav ml-auto main-nav ">
 								<li class="nav-item active">
 									<a class="nav-link" href="./">Inicio</a>
 								</li>
@@ -73,16 +73,25 @@
 									<a class="nav-link" href="#contacto">Contacto</a>
 								</li>
 							</ul>
+						<!--<button class="navbar-toggler" type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+							
 						</div>
 					</nav>
-          {% endblock %}
+        {% endblock %}
 				</div>
 			</div>
 		</div>
 	</section>
+  
   <main class="cajaContenido" >
       {% block content %}{% endblock content %}    
   </main>
+
 	<!--============================
 =            Footer            =
 =============================-->
@@ -95,7 +104,7 @@
 					<!-- About -->
 					<div class="block about">
 						<!-- footer logo -->
-						<img src="images/logo-footer.png" alt="">
+            <img src="{{ url_for('static', filename='img/logo-footer.png') }}">
 						<!-- description -->
 						<p class="alt-color">Firma que trabajaba para distintos clientes en el área de la industria
 							electrónica, mejorando la calidad de los productos fabricados y posicionando a la empresa

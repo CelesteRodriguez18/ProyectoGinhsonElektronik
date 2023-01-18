@@ -1,5 +1,10 @@
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
+*{
+  box-sizing: border-box;
+  padding:0px;
+  margin:0px;
+}
 body {
   line-height: 1.5;
   font-family: "Muli", sans-serif;
@@ -52,6 +57,92 @@ label {
   color: #848484;
 }
 
+/*nav nuestro*/
+nav{
+  background: #3c6a20;
+  height: 80px;
+  width: 100%;
+}
+.enlace{
+  position: absolute;
+  padding: 20px 50px;
+}
+.logo{
+  height:50px;
+}
+nav ul {
+  float:right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  font-size: 18px;
+  padding: 7px 13px;
+  border- radius : 3px;
+}
+li a.active,li a:hover{
+  background: red;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right:40px;
+  cursor: pointer;
+  display:none
+  
+}
+#check{
+  display:none;
+}
+/*tamaño dispositivos grandes tablet*/
+@media (max-width: 952px){
+  .enlace {
+    padding-left:20px;
+  }
+  nav ul li a{
+    font-sixe:16px;
+  }
+}
+/*tamaño dispositivo pequeño celular*/
+@media (max-width : 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position:fixed;
+    width: 100%;
+    height: 100vh;
+    background: salmon;
+    top:80px;
+    left: -100%;
+    text-aling:center;
+    transition: all .5s;
+  }
+
+  nav ul li{
+    display:block;
+    margin:50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size:20px;
+  }
+  li a:hover, li a.active{
+    background:none;
+    color: yellow;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}/*
 .nav-pills .nav-link {
   font-size: 16px;
 }
@@ -127,6 +218,7 @@ label {
   background: transparent;
   color: #666;
 }
+*/
 
 ul.pagination li {
   margin-right: 10px;
@@ -660,10 +752,6 @@ ul.pagination .active a {
   background: #5672f9;
 }
 
-.navigation {
-  padding: 20px 0;
-}
-
 .navigation .navbar-nav {
   text-align: center;
 }
@@ -735,11 +823,12 @@ ul.pagination .active a {
 .main-nav .nav-item .dropdown-toggle::after {
   border: none;
 }
-
+/* texto nav en reposo*/
 .main-nav .nav-item.active .nav-link {
   color: #FFF;
+  text-decoration: none;
 }
-
+ /* texto nav al ser apretado*/
 .main-nav .nav-item.active .nav-link:hover {
   color: rgb(23, 194, 60);
 }
