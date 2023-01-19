@@ -360,16 +360,16 @@ footer .footer-textos p{
     margin:10px 0;
     padding: 10px 15px;
     background: none;
-    border:1px solid #af7ca8;
+    border:1px solid #3C6A20;
     border-radius: 5px;
     color:#999999;
     cursor: pointer;
-    float:right;
+    margin: auto;
 
 }
 .contactoMail  input[type="submit"]:hover{
-    background: #af7ca8;
-    color: #999999;
+    background: #3C6A20;
+    color: #ffff;
 }
 #contactoFlex{
   display: flex; 

@@ -50,7 +50,10 @@
   A partir del año 2005, se funda en Argentina GINHSON Elektronik, desarrollando productos propios y para terceros. Dedicándonos día a día a desarrollar e implementar nuevas tecnologías para satisfacer los requerimientos del mercado actual. 
   Nuestro éxito radica en la satisfacción del cliente, logrando dicho objetivo gracias al profesionalismo aplicado y la continua capacitación para poder ofrecer la solución más adecuada para cada necesidad.
   					</p>
-  				  <div class="col-md-3 text-center">
+  				  <div class="col-md-3 text-center" style="
+    display: block;
+    margin: auto;
+">
   					 <img src= "{{ url_for('static', filename='img/pablo.jpeg') }}" style="border-radius: 50%;     margin: 20px"
   						class="img-fluid img-thumbnail" alt="...">
   				  </div>
@@ -328,7 +331,7 @@
                       <textarea name="mensaje" id="mensaje" placeholder="Mensaje:"></textarea>
                      <div class="derecha">
                       </div>
-                      <form method="get" action="http://pablo@ginhson.com.ar/accion.php">
+                      <form method="get" action="http://celesrodriguez18@gmail.com.ar/accion.php" 
                           <input type="submit" value="Enviar" />
                           
                           </form>
@@ -336,7 +339,7 @@
               </div>
           </section>
         </div>  
-
+         <!-- pablo@ginhson.com.ar-->
 
 					<!-- <div class="form">
 						<div id="errormessage"></div>
@@ -388,9 +391,11 @@
 			<div class="row justify-content-md-center text-center">
 				<div class="col-md-8">
 					<div class="content-holder">
-						<h2 class= "textoMicroChip">De la mano de la mejor tecnología</h2>
-						<h3 class= "textoMicroChip">Somos diseñadores autorizados de Microchip</h3>
-						<img class= "imgMicroChip" src="{{ url_for('static', filename='img/partner_logo.png') }}" style="max-width: 200px;" alt="">
+            <div style="text-align: center;">
+						  <h2 class= "textoMicroChip">De la mano de la mejor tecnología</h2>
+						  <h3 class= "textoMicroChip">Somos diseñadores autorizados de Microchip</h3>
+            </div>
+						<img class= "imgMicroChip" src="{{ url_for('static', filename='img/partner_logo.png') }}" style="max-width: 200px;display: block;margin: auto;margin-top: 15px;"" alt="">
 					</div>
 				</div>
 			</div>
