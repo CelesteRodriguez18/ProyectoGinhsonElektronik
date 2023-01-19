@@ -51,19 +51,18 @@ function detectarImagen() {
 }
 
 function redirigirAdminAgregar() {
-  location.href = "/agregarProductos";
+  alert('Usted será redirigido a la sección de Agregar Productos')
+  location.href = '/agregarProductos';
 }
 
 function redirigirAdminBorrar() {
-  location.href = "/borrarProductos";
+  alert('Usted será redirigido a la sección de Borrar Productos')
+  location.href = '/borrarProductos';
 }
 
 function redirigirAdminModificar() {
-  location.href = "/modificarProductos";
-}
-
-function pagAnterior() {
-  location.href = "/opcionesAdmin";
+  alert('Usted será redirigido a la sección de Modificar Productos')
+  location.href = '/modificarProductos';
 }
 
 function deseleccionar(check1, check2, check3) {
@@ -76,4 +75,101 @@ function deseleccionar(check1, check2, check3) {
   if (document.getElementById(check3).checked == true) {
     document.getElementById(check3).checked = false
   }
+}
+
+function eliminar(nombre, producto) {
+  nombre = nombre
+  producto = producto
+  console.log(producto)
+  console.log(nombre)
+  $.ajax({ 
+    url:"/eliminar", 
+    type:"POST", 
+    data: {"nombre": nombre,
+           "producto": producto,
+          }, 
+
+    success: function(response){  
+      datos = (response); 
+      console.log(datos)
+      console.log(nombre)
+      document.getElementById(nombre).remove()
+      alert("Se eliminó a " + datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+function borrarProductoSeguridad() {
+  nombreProductoSeguridad = document.getElementById("nombreProductoSeguridad")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarProductoSeguridad", 
+    type:"POST", 
+    data: {"nombreProductoSeguridad": nombreProductoSeguridad,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+function borrarProductoNautica() {
+  nombreProductoNautica = document.getElementById("nombreProductoNautica")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarProductoNautica", 
+    type:"POST", 
+    data: {"nombreProductoNautica": nombreProductoNautica,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+function borrarProductoIndustria() {
+  nombreProductoIndustria = document.getElementById("nombreProductoIndustria")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarProductoIndustria", 
+    type:"POST", 
+    data: {"nombreProductoIndustria": nombreProductoIndustria,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+function borrarProductoDispositivos() {
+  nombreProductoDispositivos = document.getElementById("nombreProductoDispositivos")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarProductoDispositivos", 
+    type:"POST", 
+    data: {"nombreProductoDispositivos": nombreProductoDispositivos,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
 }

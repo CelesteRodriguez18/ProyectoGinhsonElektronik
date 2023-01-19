@@ -33,6 +33,10 @@ app.secret_key = 'esto-es-una-clave-muy-secreta'
 @app.route('/')
 def index():
   session['sesion'] = False  
+  session['Seguridad'] = "."
+  session['Industria'] = "."
+  session['Nautica'] = "."
+  session['Dispositivos'] = "."
   return render_template('index.html')
 
 @app.route('/admin', methods=["GET", "POST"])
@@ -78,7 +82,6 @@ def ingreso():
 def opcionesAdmin():
   print("opciones Admin")
   return render_template('opcionesAdmin.html')
-
 
 @app.route('/agregarProductos', methods=["GET", "POST"])
 def agregarProductos():
@@ -133,5 +136,229 @@ def agregarProductos():
       return redirect('/admin')
   else:
     return render_template('agregarProductos.html')
+
+@app.route('/borrarProductos', methods=["GET", "POST"])
+def borrarProductos():
+  if session['sesion'] == True:
+    largoS = 0
+    largoI = 0
+    largoN = 0
+    largoD = 0
+    return render_template('borrarProductos.html', largoS = largoS, largoI = largoI, largoN = largoN, largoD = largoD)
+  else:
+    return redirect('/admin')
+
+@app.route('/modificarProductos', methods=["GET", "POST"])
+def modificarProductos():
+  print("modificar productos")
+  return render_template('modificarProductos.html')
+
+
+
+@app.route('/opcionesBorrarProductoSeguridad',  methods=["GET", "POST"])
+def opcionesBorrarProductoSeguridad():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      if (request.form["nombreProductoSeguridad"] != "" and session['Nautica'] == "." and session['Industria'] == "." and session['Dispositivos'] == "."):
+        producto = request.form["nombreProductoSeguridad"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        producto = producto.capitalize()
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        print(producto)
+        resu = conn.execute(r)
+        lista = resu.fetchall()
+        nombreProductoSeguridad = []
+        imagenProductoSeguridad = []
+        for i in lista:
+          nombreProductoSeguridad.append(i[0])
+        print(nombreProductoSeguridad)
+        for i in lista:
+          imagenProductoSeguridad.append(i[-1])
+        print(imagenProductoSeguridad)
+        largoS = len(nombreProductoSeguridad)
+        largoI = 0
+        largoN = 0
+        largoD = 0
+        conn.commit()      
+        conn.close()
+        
+        return render_template('borrarProductos.html', nombreProductoSeguridad = nombreProductoSeguridad, imagenProductoSeguridad = nombreProductoSeguridad, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+  
+      else:
+        largoS = 0
+        largoI = 0
+        largoN = 0
+        largoD = 0
+        mensajeS = "Ingrese un nombre"
+        return render_template('borrarProductos.html', mensajeS = mensajeS, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+    else:
+      return redirect('/admin')  
+  else:
+    largoS = 0
+    largoI = 0
+    largoN = 0
+    largoD = 0
+    return redirect('/borrarProductos', largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+
+@app.route('/opcionesBorrarProductoNautica',  methods=["GET", "POST"])
+def opcionesBorrarProductoNautica():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      if (request.form["nombreProductoNautica"] != "" and session['Seguridad'] == "." and session['Industria'] == "." and session['Dispositivos'] == "."):
+        producto = request.form["nombreProductoNautica"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        producto = producto.capitalize()
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        print(producto)
+        resu = conn.execute(r)
+        lista = resu.fetchall()
+        nombreProductoNautica = []
+        imagenProductoNautica = []
+        for i in lista:
+          nombreProductoNautica.append(i[0])
+        print(nombreProductoNautica)
+        for i in lista:
+          imagenProductoNautica.append(i[-1])
+        print(imagenProductoNautica)
+        largoN = len(nombreProductoNautica)
+        largoI = 0
+        largoS = 0
+        largoD = 0
+        conn.commit()      
+        conn.close()
+        
+        return render_template('borrarProductos.html', nombreProductoNautica = nombreProductoNautica, imagenProductoNautica = nombreProductoNautica, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+  
+      else:
+        largoS = 0
+        largoI = 0
+        largoN = 0
+        largoD = 0
+        mensajeN = "Ingrese un nombre"
+        return render_template('borrarProductos.html', mensajeN = mensajeN, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+    else:
+      return redirect('/admin')  
+  else:
+    largoS = 0
+    largoI = 0
+    largoN = 0
+    largoD = 0
+    return redirect('/borrarProductos', largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+
+@app.route('/opcionesBorrarProductoIndustria',  methods=["GET", "POST"])
+def opcionesBorrarProductoIndustria():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      if (request.form["nombreProductoIndustria"] != "" and session['Nautica'] == "." and session['Seguridad'] == "." and session['Dispositivos'] == "."):
+        producto = request.form["nombreProductoIndustria"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        producto = producto.capitalize()
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        print(producto)
+        resu = conn.execute(r)
+        lista = resu.fetchall()
+        nombreProductoIndustria = []
+        imagenProductoIndustria = []
+        for i in lista:
+          nombreProductoIndustria.append(i[0])
+        print(nombreProductoIndustria)
+        for i in lista:
+          imagenProductoIndustria.append(i[-1])
+        print(imagenProductoIndustria)
+        largoI = len(nombreProductoIndustria)
+        largoS = 0
+        largoN = 0
+        largoD = 0
+        conn.commit()      
+        conn.close()
+        
+        return render_template('borrarProductos.html', nombreProductoIndustria = nombreProductoIndustria, imagenProductoIndustria = nombreProductoIndustria, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+  
+      else:
+        largoS = 0
+        largoI = 0
+        largoN = 0
+        largoD = 0
+        mensajeI = "Ingrese un nombre"
+        return render_template('borrarProductos.html', mensajeI = mensajeI, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+    else:
+      return redirect('/admin')  
+  else:
+    largoS = 0
+    largoI = 0
+    largoN = 0
+    largoD = 0
+    return redirect('/borrarProductos', largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+
+@app.route('/opcionesBorrarProductoDispositivos',  methods=["GET", "POST"])
+def opcionesBorrarProductoDispositivos():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      if (request.form["nombreProductoDispositivos"] != "" and session['Seguridad'] == "." and session['Industria'] == "." and session['Nautica'] == "."):
+        producto = request.form["nombreProductoDispositivos"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        producto = producto.capitalize()
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        print(producto)
+        resu = conn.execute(r)
+        lista = resu.fetchall()
+        nombreProductoDispositivos = []
+        imagenProductoDispositivos = []
+        for i in lista:
+          nombreProductoDispositivos.append(i[0])
+        print(nombreProductoDispositivos)
+        for i in lista:
+          imagenProductoDispositivos.append(i[-1])
+        print(imagenProductoDispositivos)
+        largoD = len(nombreProductoDispositivos)
+        largoI = 0
+        largoS = 0
+        largoN = 0
+        conn.commit()      
+        conn.close()
+        
+        return render_template('borrarProductos.html', productosDispositivos = nombreProductoDispositivos, imagenProductoDispositivos = nombreProductoDispositivos, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+  
+      else:
+        largoS = 0
+        largoI = 0
+        largoN = 0
+        largoD = 0
+        mensajeD = "Ingrese un nombre"
+        return render_template('borrarProductos.html', mensajeD = mensajeD, largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+    else:
+      return redirect('/admin')  
+  else:
+    largoS = 0
+    largoI = 0
+    largoN = 0
+    largoD = 0
+    return redirect('/borrarProductos', largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
+
+
+
+@app.route('/eliminar', methods=["POST"])
+def eliminar():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      print("hla")
+      nombre = request.form["nombre"]
+      producto = request.form["producto"]
+      print(producto)
+      conn = sqlite3.connect('ginhsonElektronik.db')
+      if producto == "Seguridad":
+        print("Seguridad")
+        q = f"""DELETE FROM Productos WHERE nombre = '{nombre}'"""
+      elif producto == "Nautica":
+        print("Nautica")
+        q = f"""DELETE FROM Productos WHERE nombre = '{nombre}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      print(nombre)
+      return jsonify(nombre)
+    else:
+      return redirect('/formularioRefugio')
+
 
 app.run(host='0.0.0.0', port=81)

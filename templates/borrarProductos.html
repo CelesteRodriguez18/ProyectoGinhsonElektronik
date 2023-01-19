@@ -1,0 +1,122 @@
+<div class="formEliminar"> 
+    <h1>ELIMINAR PRODUCTOS</h1>
+  <div class= "rectangulosEliminacion">
+    
+        <!-- DIV SEGURIDAD -->
+
+    <div class ="rectanguloEliminarProductoSeguridad">
+        <form action="{{url_for('opcionesBorrarProductoSeguridad')}}" method="POST">
+          <p> {{ mensajeS }}</p>
+          <label for="nombre"> Ingrese el nombre del producto de la Línea "Seguridad" que desea eliminar: </label>
+          <input type="text" id="nombreProductoSeguridad" name="nombreProductoSeguridad"style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+    
+          <button type="submit" class="botonAdmin" onclick="borrarProductoSeguridad()"> BUSCAR</button>
+      
+        </form>
+    
+      {% for linea in range (largoS) %} 
+      <div id="{{ productosSeguridad[linea] }}">
+        <h2 class="nombreProductSeguridad" style="text-align: center "> {{ productosSeguridad[linea] }} </h2>
+      <img id="imgProductoSeguridad" class="imagenesProductoSeguridad"  alt="{{ productosSeguridad[linea][1] }} " src = "{{ imagenProductosSeguridad[linea][1:] }}" onclick="eliminar('{{ productosSeguridad[linea] }}', 'Seguridad')"> 
+      </div>
+      
+      {% endfor %}
+    
+    </div>
+
+       <!-- DIV NAUTICA -->
+
+    <div class ="rectanguloEliminarProductoNautica">
+        <form action="{{url_for('opcionesBorrarProductoNautica')}}" method="POST">
+          <p> {{ mensajeN }}</p>
+          <label for="nombre"> Ingrese el nombre del producto de la Línea "Náutica" que desea eliminar: </label>
+          <input type="text" id="nombreProductoNautica" name="nombreProductoNautica"style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+    
+          <button type="submit" class="botonAdmin" onclick="borrarProductoNautica()"> BUSCAR</button>
+      
+        </form>
+    
+      {% for linea in range (largoN) %} 
+      <div id="{{ productosNautica[linea] }}">
+        <h2 class="nombreProductNautica" style="text-align: center "> {{ productosNautica[linea] }} </h2>
+      <img id="imgProductoNautica" class="imagenesProductoNautica"  alt="{{ productosNautica[linea][1] }} " src = "{{ imagenProductosNautica[linea][1:] }}" onclick="eliminar('{{ productosNautica[linea] }}', 'Nautica')"> 
+      </div>
+      
+      {% endfor %}
+    
+    </div>
+    
+  
+        <!-- DIV INDUSTRIA -->
+
+    <div class ="rectanguloEliminarProductoIndustria">
+        <form action="{{url_for('opcionesBorrarProductoIndustria')}}" method="POST">
+          <p> {{ mensajeI }}</p>
+          <label for="nombre"> Ingrese el nombre del producto de la Línea "Industria" que desea eliminar: </label>
+          <input type="text" id="nombreProductoIndustria" name="nombreProductoIndustria"style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+    
+          <button type="submit" class="botonAdmin" onclick="borrarProductoIndustria()"> BUSCAR</button>
+      
+        </form>
+    
+      {% for linea in range (largoI) %} 
+      <div id="{{ productosIndustria[linea] }}">
+        <h2 class="nombreProductIndustria" style="text-align: center "> {{ productosIndustria[linea] }} </h2>
+      <img id="imgProductoIndustria" class="imagenesProductoIndustria"  alt="{{ productosIndustria[linea][1] }} " src = "{{ imagenProductosIndustria[linea][1:] }}" onclick="eliminar('{{ productosIndustria[linea] }}', 'Industria')"> 
+      </div>
+      
+      {% endfor %}
+    
+    </div>
+
+       <!-- DIV DISPOSITIVOS -->
+
+    <div class ="rectanguloEliminarProductoDispositivos">
+        <form action="{{url_for('opcionesBorrarProductoDispositivos')}}" method="POST">
+          <p> {{ mensajeD }}</p>
+          <label for="nombre"> Ingrese el nombre del producto de la Línea "Dispositivos" que desea eliminar: </label>
+          <input type="text" id="nombreProductoDispositivos" name="nombreProductoDispositivos"style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+    
+          <button type="submit" class="botonAdmin" onclick="borrarProductoDispositivos()"> BUSCAR</button>
+      
+        </form>
+    
+      {% for linea in range (largoD) %} 
+      <div id="{{ productosDispositivos[linea] }}">
+        <h2 class="nombreProductDispositivos" style="text-align: center "> {{ productosDispositivos[linea] }} </h2>
+      <img id="imagenProductoDispositivos" class="imagenProductoDispositivos"  alt="{{ productosDispositivos[linea][1] }} " src = "{{ imagenProductosDispositivos[linea][1:] }}" onclick="eliminar('{{ productosDispositivos[linea] }}', 'Dispositivos')"> 
+      </div>
+      
+      {% endfor %}
+    
+    </div>
+    
+  
+  </div>
+    <br/>
+    
+    <br/>
+    <input type="button" onclick="history.back()" name="Volver" value="Volver">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+</div>

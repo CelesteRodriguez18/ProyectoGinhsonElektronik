@@ -3,7 +3,7 @@
   <div class="rectanguloAdopcion"> 
     <div class= "adopcionInterior">
   
-      <h1 id="cargar">Agregar productos</h1>
+      <h1 id="cargar">AGREGAR PRODUCTOS</h1>
     
       <form action="{{url_for('agregarProductos')}}" method="POST" enctype="multipart/form-data">
     
@@ -18,16 +18,16 @@
         
         <label for="tipoLinea">Elija la línea que corresponda: </label><br>
         <div class="checkboxs">
-        <input class= "checkBoxLinea1" type="checkbox" id="Seguridad" name="linea" value='Seguridad' onclick="deseleccionar('Nautica', 'Industria', 'Dispositivos')"/><label class="label1" for="Seguridad" style="
+        <input class= "checkBoxLinea" type="radio" id="Seguridad" name="linea" value='Seguridad' /><label class="labelRadio" for="Seguridad" style="
     margin-right: 50px;
 ">Seguridad </label>
-        <input class= "checkBoxLinea2" type="checkbox" id="Nautica" name="linea" value='Nautica' onclick="deseleccionar('Seguridad', 'Industria', 'Dispositivos')"/> <label class="label2"for="Nautica" style="
+        <input class= "checkBoxLinea" type="radio" id="Nautica" name="linea" value='Nautica'/> <label class="labelRadio"for="Nautica" style="
     margin-right: 50px;
 ">Nautica </label> 
-          <input class= "checkBoxLinea3" type="checkbox" id="Industria" name="linea" value='Industria' onclick="deseleccionar('Seguridad', 'Nautica', 'Dispositivos')"/> <label class="label3"for="Industria" style="
+          <input class= "checkBoxLinea" type="radio" id="Industria" name="linea" value='Industria'/> <label class="labelRadio"for="Industria" style="
     margin-right: 50px;
 ">Industria </label> 
-          <input class= "checkBoxLinea4" type="checkbox" id="Dispositivos" name="linea" value='Dispositivos' onclick="deseleccionar('Seguridad', 'Industria', 'Nautica')"/> <label class="label4"for="Dispositivos" >Dispositivos </label> 
+          <input class= "checkBoxLinea" type="radio" id="Dispositivos" name="linea" value='Dispositivos'/> <label class="labelRadio"for="Dispositivos" >Dispositivos </label> 
         </div>
         <br>
 
@@ -39,6 +39,7 @@
         <label for="información"> Ingrese la información del producto: </label> 
         <input required type="text" id="informacion" name="informacion"/><br>
     
+<!-- LAS IMÁGENES SE GUARDAN EN IMAGES/PRODUCTS -->
         
         <input id="selecArchivo" required type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none" onchange="detectarImagen()"><br>
         <button type="button" class="botonSelecArchivos">
@@ -49,8 +50,8 @@
       </form>
     
       <br/>
-      <!--<button type="button" class="botonAdmin" onclick="pagAnterior()"> Volver</button>-->
-      <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+      
+      <input type="button" onclick="history.back()" name="Volver" value="Volver">
     </div>
   </div>
 {% endblock content %} 

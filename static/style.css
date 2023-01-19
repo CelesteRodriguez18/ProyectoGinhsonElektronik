@@ -71,7 +71,9 @@ label {
     font-size: 20px;
     width: 180px;
 }
-
+.cajaContenido{
+  transition: 0.3s ease-in-out;
+}
 /*nav nuestro*/
 nav{
   background: #3c6a20;
@@ -183,12 +185,29 @@ li a.active,li a:hover{
   #check:checked ~ ul{
     left: 0;
   }
+  
   p{
     padding 
   }
   ul li a.active{
     display:none;
   }
+ /* VER COMO HACER LA CRUX CUANDO SE ABRE EL NAV 
+.fas fa-bars, 
+.navClose{
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transition: .4s transform;
+}
+
+.fas fa-bars{
+    transform: var(--state-hamburguer);
+}
+
+.navClose{
+    transform: var(--state-close);
+}*/
 
 }/*
 .nav-pills .nav-link {
@@ -2947,10 +2966,30 @@ form textarea {
   height: 4vh;
 }
 
+.botonVolver{
+  text-align: center;
+  border: #3c6a20;;
+  font-family: "Muli", sans-serif;
+  margin-top: 2px;
+  font-size: 15px;
+  color: #3c6a20;
+  text-align: center;
+  background-color: #619640;
+  width:8vw;
+  height: 4vh;
+}
+
 .tituloAdmin{
   font-family: "Muli", sans-serif;
   font-size: 30px;
   color: #fff;
+}
+
+.alt-color{
+  font-family: "Muli", sans-serif;
+  margin-right: auto;
+  margin-left: auto;
+  text-aling: center;
 }
 
 

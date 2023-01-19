@@ -53,6 +53,9 @@
             <input type = "checkbox" id = "check">
             <label for= "check" class= "checkbtn">
               <i class="fas fa-bars"></i>
+              <!--<a href="#" class="navClose">
+                <img src="{{ url_for('static', filename='img/cruz.png') }}">
+            </a> VER COMO PONER LA X EN EL NAV-->
             </label>
             <a href = "#" class = "enlace"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class= "logo">
 						</a>
@@ -63,17 +66,18 @@
 								<li class="nav-item">
 									<a class="nav-link" href="#acercade">Quienes somos</a>
 								</li>
+                <li class="nav-item">
+									<a class="nav-link" href="#servicios">Servicios</a>
+								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="#productos">Productos</a>
 								</li>
+								
 								<li class="nav-item">
-									<a class="nav-link" href="#servicios">Servicios</a>
+									<a class="nav-link" href="#contacto">Contacto</a>
 								</li>
                 <li class="nav-item">
 									<a class="nav-link" href="admin">Administrador</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#contacto">Contacto</a>
 								</li>
 							</ul>
 						<!--<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -109,40 +113,37 @@
 						<!-- footer logo -->
             <img src="{{ url_for('static', filename='img/logo-footer.png') }}">
 						<!-- description -->
-						<p class="alt-color">Firma que trabajaba para distintos clientes en el área de la industria
+						<p class="alt-color"> Firma que trabajaba para distintos clientes en el área de la industria
 							electrónica, mejorando la calidad de los productos fabricados y posicionando a la empresa
 							como una de las más reconocidas armadoras de productos electrónicos en dicho país. </p>
 					</div>
 				</div>
-				<!-- Link list -->
-				<div class="col-lg-2 offset-lg-1 col-md-3">
-					<div class="block">
-						<h4>Mapa del sitio</h4>
-						<ul>
-							<li><a href="#">Inicio</a></li>
-							<li><a href="#acercade">Quienes somos</a></li>
-							<li><a href="productos.html">Productos</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-2 offset-lg-1 col-md-3">
-					<div class="block">
-						<h4 style="color: black;">.</h4>
-						<ul>
-							<li><a href="#servicios">Servicios</a></li>
-							<li><a href="#contacto">Contacto</a></li>
-						</ul>
-					</div>
-				</div>
-
 			</div>
 		</div>
 		<!-- Container End -->
 	</footer>
 	<!-- Footer Bottom -->
-
-
+	<footer class="footer-bottom">
+		<!-- Container Start -->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<!-- Copyright -->
+					<div class="copyright">
+						<p>Copyright ©
+							<script>
+								var CurrentYear = new Date().getFullYear()
+								document.write(CurrentYear)
+							</script>. Todos los derechos reservados.
+					</div>
+				</div>
+				<!-- <div class="col-sm-6 col-12">
+					<a href="https://tecnoplug.com">tecnoplug.com</a>
+				</div> -->
+			</div>
+		</div>
+  </footer>
 </body>
 
 </html>
+
