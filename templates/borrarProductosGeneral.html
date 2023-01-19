@@ -1,0 +1,50 @@
+<div class="formEliminar"> 
+    <h1>ELIMINAR PRODUCTOS</h1>
+  <div class= "rectangulosEliminacion">
+    
+        <!-- DIV GENERAL 
+    
+    error: 
+jinja2.exceptions.UndefinedError: 'productos' is undefined
+ 
+PARA PROBAR: https://proyectoginhsonelektrokik.celesrodriguez.repl.co/borrarProductosGeneral
+
+    
+    -->
+
+    <div class ="rectanguloEliminarProducto">
+        <form action="{{url_for('opcionesBorrarProducto')}}" method="POST">
+          <p> {{ mensaje }}</p>
+          <label for="nombre"> Ingrese el nombre del producto que desea eliminar: </label>
+          <input type="text" id="nombreProducto" name="nombreProducto"style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+    
+          <button type="submit" class="botonAdmin" onclick="borrarProducto()"> BUSCAR</button>
+      
+        </form>
+    
+      {% for linea in range (largo) %} 
+      <div id="producto">
+        <h2 class="nombreProduct" style="text-align: center "> {{ productos[linea] }} </h2>
+      <img id="imgProducto" class="imagenesProducto"  alt="{{ productos[linea][1] }} " src = "{{ imagenProductos[linea][1:] }}" onclick="eliminar('{{ productos[linea] }}')"> 
+      </div>
+      
+      {% endfor %}
+    
+    </div>
+
+      
+    
+  
+  </div>
+    <br/>
+    
+    <br/>
+    <input type="button" onclick="history.back()" name="Volver" value="Volver">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+</div>

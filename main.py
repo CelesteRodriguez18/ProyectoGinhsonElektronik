@@ -153,7 +153,50 @@ def modificarProductos():
   print("modificar productos")
   return render_template('modificarProductos.html')
 
+@app.route('/borrarProductosGeneral', methods=["GET", "POST"])
+def borrarProductosGeneral():
+  if session['sesion'] == True:
+    largo = 0
+    return render_template('borrarProductosGeneral.html', largo = largo)
+  else:
+    return redirect('/admin')
 
+@app.route('/opcionesBorrarProducto',  methods=["GET", "POST"])
+def opcionesBorrarProducto():
+  if (request.method == "POST"):
+    print('hola')
+    producto = request.form["nombreProducto"]
+    print(producto)
+    if session['sesion'] == True:
+      if (request.form["nombreProducto"] != "" ):
+        producto = request.form["nombreProducto"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        producto = producto.capitalize()
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        print(producto)
+        resu = conn.execute(r)
+        print(resu)
+        lista = resu.fetchall()
+        nombreProducto = []
+        imagenProducto = []
+        for i in lista:
+          nombreProducto.append(i[0])
+        print(nombreProducto)
+        for i in lista:
+          imagenProducto.append(i[-1])
+        print(imagenProducto)
+        largo = len(nombreProducto)
+        conn.commit()      
+        conn.close()
+        
+        return render_template('borrarProductosGeneral.html', productos = nombreProducto, imagenProducto = nombreProducto, largo = largo)
+      else:
+        mensaje = "Ingrese un nombre"
+        return render_template('borrarProductosGeneral.html', mensaje = mensaje, largo = largo)
+    else:
+      return redirect('/admin')  
+  else:
+    return redirect('/borrarProductosGeneral', largo = largo)
 
 @app.route('/opcionesBorrarProductoSeguridad',  methods=["GET", "POST"])
 def opcionesBorrarProductoSeguridad():

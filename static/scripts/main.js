@@ -77,16 +77,13 @@ function deseleccionar(check1, check2, check3) {
   }
 }
 
-function eliminar(nombre, producto) {
+function eliminar(nombre) {
   nombre = nombre
-  producto = producto
-  console.log(producto)
   console.log(nombre)
   $.ajax({ 
     url:"/eliminar", 
     type:"POST", 
     data: {"nombre": nombre,
-           "producto": producto,
           }, 
 
     success: function(response){  
@@ -163,6 +160,24 @@ function borrarProductoDispositivos() {
     url:"/opcionesBorrarProductoDispositivos", 
     type:"POST", 
     data: {"nombreProductoDispositivos": nombreProductoDispositivos,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+// FUNCION GENERAL
+function borrarProducto() {
+  nombreProducto = document.getElementById("nombreProducto")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarProducto", 
+    type:"POST", 
+    data: {"nombreProducto": nombreProducto,
           }, 
 
     success: function(response){  

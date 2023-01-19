@@ -74,6 +74,7 @@ label {
 .cajaContenido{
   transition: 0.3s ease-in-out;
 }
+
 /*nav nuestro*/
 nav{
   background: #3c6a20;
@@ -135,7 +136,11 @@ li a.active,li a:hover{
   justify-content: space-between; 
   flex-wrap: wrap; /* se adapata la cantidad de bloques al tamaño de la pantalla*/
 }
-
+iframe{
+  border:0;
+  width: 500px;
+  height: 400px;
+}
 /*tamaño dispositivos grandes tablet*/
 @media (max-width: 952px){
   .enlace {
@@ -144,6 +149,8 @@ li a.active,li a:hover{
   nav ul li a{
     font-sixe:16px;
   }
+
+  
 }
 /*tamaño dispositivo pequeño celular*/
 @media (max-width : 858px){
@@ -192,6 +199,9 @@ li a.active,li a:hover{
   ul li a.active{
     display:none;
   }
+  .contactoMail{
+    padding:50px 0;
+  }
  /* VER COMO HACER LA CRUX CUANDO SE ABRE EL NAV 
 .fas fa-bars, 
 .navClose{
@@ -209,7 +219,17 @@ li a.active,li a:hover{
     transform: var(--state-close);
 }*/
 
-}/*
+}
+/*celulares  mas chicos*/
+@media (max-width : 500px){
+    
+    iframe{
+    width:400px;
+    margin:5px;
+    height: 400px;
+  }
+}
+/*
 .nav-pills .nav-link {
   font-size: 16px;
 }
@@ -286,6 +306,80 @@ li a.active,li a:hover{
   color: #666;
 }
 */
+
+/* contacto mandar mail*/
+
+.contactoMail{
+    background-image: url(../img/footer.png);
+    background-position:center;
+    margin: 10px;
+    margin: 15px;
+}
+/*footer .links{
+    text-align: center;
+    color:#909090;
+    font-size:14px;
+}
+
+footer .footer-textos{
+    text-align: center;
+    color: rgb(58, 58, 58);
+    font-size:25px;
+}
+
+footer .footer-textos p{
+    font-size: 14px;
+    margin:15px 0 30px 0;
+    color: #999999;
+
+}
+*/
+.contactoMail  input[type="text"],.contactoMail  input[type="email"],
+.contactoMail  textarea{
+    width: 100%;
+    margin: 5px 0;
+    padding: 15px 20px;
+    background: none;
+    border-radius: 5px;
+    color:rgb(112, 112, 112);
+    border: 2px solid rgba(156, 156, 156, 0.383);
+    font-family: 'lato';
+    font-weight: 300;
+}
+
+.contactoMail  textarea{
+    height:150px;
+    max-height: 150px;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 150px;
+}
+.contactoMail  input[type="submit"]{
+    display:block;
+    width: 100px;
+    margin:10px 0;
+    padding: 10px 15px;
+    background: none;
+    border:1px solid #af7ca8;
+    border-radius: 5px;
+    color:#999999;
+    cursor: pointer;
+    float:right;
+
+}
+.contactoMail  input[type="submit"]:hover{
+    background: #af7ca8;
+    color: #999999;
+}
+#contactoFlex{
+  display: flex; 
+  justify-content: space-around; 
+  flex-wrap: wrap;
+}
+
+
+
+
 
 #sectionAcercade{
   padding:8px;
@@ -541,6 +635,7 @@ button {
 .overly {
   position: relative;
 }
+
 /*parte gris arriba de la foto horrososa que le da un matiz más oscuro*/
 .overly:before {
   content: '';
@@ -2993,7 +3088,14 @@ form textarea {
 }
 
 .mapa{
-  padding-left: 5%;
+  /*padding-left: 5%;*/
+}
+
+
+
+.microChip overly bg-3 section-sm{
+  text-aling: center;
+  display: flex;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

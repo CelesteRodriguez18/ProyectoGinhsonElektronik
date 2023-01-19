@@ -301,19 +301,41 @@
 	<a name="contacto" id= "contacto"></a>
 	<section class="section">
 		<div class="container">
-			<div class="section-title">
-				<h2>Contáctenos</h2>
-			</div>
-
-
-			<div class="row wow fadeInUp">
-
-				<div class="col-lg-6">
-					<div class="mapa">
-						<iframe src="https://maps.google.com/maps?q=Lascano%205322&t=&z=13&ie=UTF8&iwloc=&output=embed"
-							frameborder="0" style="border:0; width: 40%; height: 400px;" allowfullscreen></iframe>
-					</div>
-				</div>
+      
+  	  <div class="section-title">
+  			<h2>Contáctenos</h2>
+        <p>Ubicación de nuestras oficinas</p>
+  	  </div>
+      <div id= "contactoFlex">  
+  			<div class="row wow fadeInUp">
+  				<div class="col-lg-6">
+  					<div class="mapa">
+  						<iframe src="https://maps.google.com/maps?q=Lascano%205322&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  							frameborder="0" allowfullscreen class="Mapita"></iframe>
+  					</div>
+  				</div>
+        </div>
+        <div>
+          <section class="contactoMail" id="contactoMail">
+              <div class="contenedor">
+                  <div class="footer-textos">
+                      <h2>Contactate con nosotros!</h2>
+                      <p><a class="links"></a></p>
+                  </div>
+                  <form action="" class="formulario" method="POST">
+                      <input type="text" placeholder="Nombre" id="nombre" name="nombre" required value="">
+                      <input type="email" placeholder="Correo" id="correo" name="correo" required value="" class="email">
+                      <textarea name="mensaje" id="mensaje" placeholder="Mensaje:"></textarea>
+                     <div class="derecha">
+                      </div>
+                      <form method="get" action="http://pablo@ginhson.com.ar/accion.php">
+                          <input type="submit" value="Enviar" />
+                          
+                          </form>
+                  </form>
+              </div>
+          </section>
+        </div>  
 
 
 					<!-- <div class="form">
@@ -360,15 +382,15 @@
 =            Call to Action            =
 =====================================-->
 
-	<section class="call-to-action overly bg-3 section-sm">
+	<section class="microChip overly bg-3 section-sm">
 		<!-- Container Start -->
 		<div class="container">
 			<div class="row justify-content-md-center text-center">
 				<div class="col-md-8">
 					<div class="content-holder">
-						<h2>De la mano con la mejor tecnología</h2>
-						<h3>Somos diseñadores autorizados de Microchip.</h3>
-						<img src="{{ url_for('static', filename='img/partner_logo.png') }}" style="max-width: 200px;" alt="">
+						<h2 class= "textoMicroChip">De la mano de la mejor tecnología</h2>
+						<h3 class= "textoMicroChip">Somos diseñadores autorizados de Microchip</h3>
+						<img class= "imgMicroChip" src="{{ url_for('static', filename='img/partner_logo.png') }}" style="max-width: 200px;" alt="">
 					</div>
 				</div>
 			</div>
