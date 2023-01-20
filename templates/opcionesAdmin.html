@@ -1,4 +1,7 @@
-<div class="borrarForm"> 
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="opciones"> 
     <h1>OPCIONES ADMINISTRADOR</h1>
 
    <button type="button" class="botonAdmin" onclick="redirigirAdminAgregar()" style="margin-top: 8px;"> Agregar Producto </button>
@@ -24,3 +27,4 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   </script>
 </div>
+{% endblock content %}

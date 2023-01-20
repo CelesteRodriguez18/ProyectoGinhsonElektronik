@@ -175,7 +175,6 @@ def opcionesBorrarProducto():
         r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
         print(producto)
         resu = conn.execute(r)
-        print(resu)
         lista = resu.fetchall()
         nombreProducto = []
         imagenProducto = []
@@ -188,8 +187,8 @@ def opcionesBorrarProducto():
         largo = len(nombreProducto)
         conn.commit()      
         conn.close()
-        
-        return render_template('borrarProductosGeneral.html', productos = nombreProducto, imagenProducto = nombreProducto, largo = largo)
+        print(imagenProducto)
+        return render_template('borrarProductosGeneral.html', productos = nombreProducto, imagenProducto = imagenProducto, largo = largo)
       else:
         mensaje = "Ingrese un nombre"
         return render_template('borrarProductosGeneral.html', mensaje = mensaje, largo = largo)
@@ -198,6 +197,36 @@ def opcionesBorrarProducto():
   else:
     return redirect('/borrarProductosGeneral', largo = largo)
 
+
+
+@app.route('/eliminar', methods=["GET", "POST"])
+def eliminar():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      print("hla")
+      producto = request.form["producto"]
+      print("hla2")
+      print(producto)
+      conn = sqlite3.connect('ginhsonElektronik.db')
+      print("hla3")
+      q = f"""DELETE FROM Productos WHERE nombre = '{producto}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      print(producto)
+      return jsonify(producto)
+    else:
+      return redirect('/admin')
+
+
+
+
+
+
+
+
+    
+'''
 @app.route('/opcionesBorrarProductoSeguridad',  methods=["GET", "POST"])
 def opcionesBorrarProductoSeguridad():
   if (request.method == "POST"):
@@ -377,31 +406,6 @@ def opcionesBorrarProductoDispositivos():
     largoN = 0
     largoD = 0
     return redirect('/borrarProductos', largoI = largoI, largoS = largoS, largoN = largoN, largoD = largoD)
-
-
-
-@app.route('/eliminar', methods=["POST"])
-def eliminar():
-  if (request.method == "POST"):
-    if session['sesion'] == True:
-      print("hla")
-      nombre = request.form["nombre"]
-      producto = request.form["producto"]
-      print(producto)
-      conn = sqlite3.connect('ginhsonElektronik.db')
-      if producto == "Seguridad":
-        print("Seguridad")
-        q = f"""DELETE FROM Productos WHERE nombre = '{nombre}'"""
-      elif producto == "Nautica":
-        print("Nautica")
-        q = f"""DELETE FROM Productos WHERE nombre = '{nombre}'"""
-      conn.execute(q)
-      conn.commit()      
-      conn.close()
-      print(nombre)
-      return jsonify(nombre)
-    else:
-      return redirect('/formularioRefugio')
-
+'''
 
 app.run(host='0.0.0.0', port=81)

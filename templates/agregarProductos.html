@@ -1,57 +1,55 @@
+{% extends 'base.html' %}
+
 <body>
   {% block content %}
-  <div class="rectanguloAdopcion"> 
-    <div class= "adopcionInterior">
-  
-      <h1 id="cargar">AGREGAR PRODUCTOS</h1>
-    
-      <form action="{{url_for('agregarProductos')}}" method="POST" enctype="multipart/form-data">
-    
-        <p>{{mensaje}}</p>
-        <p>{{mensaje2}}</p>
-        <h3> Agregue un producto a la página </h3> 
-        
-        <label for="name">Ingrese el nombre: </label>
-        <input required type="text" id="nombre" name="nombre" /><br>
-        
-        <!-- check box linea -->
-        
-        <label for="tipoLinea">Elija la línea que corresponda: </label><br>
-        <div class="checkboxs">
-        <input class= "checkBoxLinea" type="radio" id="Seguridad" name="linea" value='Seguridad' /><label class="labelRadio" for="Seguridad" style="
-    margin-right: 50px;
-">Seguridad </label>
-        <input class= "checkBoxLinea" type="radio" id="Nautica" name="linea" value='Nautica'/> <label class="labelRadio"for="Nautica" style="
-    margin-right: 50px;
-">Nautica </label> 
-          <input class= "checkBoxLinea" type="radio" id="Industria" name="linea" value='Industria'/> <label class="labelRadio"for="Industria" style="
-    margin-right: 50px;
-">Industria </label> 
-          <input class= "checkBoxLinea" type="radio" id="Dispositivos" name="linea" value='Dispositivos'/> <label class="labelRadio"for="Dispositivos" >Dispositivos </label> 
-        </div>
-        <br>
-
-        
-        <label for="categoria">Ingrese la categoria: </label> 
-        <input required type="text" id="categoria" name="categoria" /><br>
-    
-           
-        <label for="información"> Ingrese la información del producto: </label> 
-        <input required type="text" id="informacion" name="informacion"/><br>
-    
-<!-- LAS IMÁGENES SE GUARDAN EN IMAGES/PRODUCTS -->
-        
-        <input id="selecArchivo" required type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none" onchange="detectarImagen()"><br>
-        <button type="button" class="botonSelecArchivos">
-          <label for="selecArchivo" id="selecArchivoLabel"> Adjunte una imagen </label> 
-        </button>
-        <br>
-        <input type="submit" class = "botonAdmin" id="send-signup" value="Enviar" style ="margin-top: 6%;">
-      </form>
-    
-      <br/>
+  <div class="contenedorGrande">
       
-      <input type="button" onclick="history.back()" name="Volver" value="Volver">
+    <div class="rectanguloForm"> 
+      <div class= "AdopcionInterior">
+    
+        <h1 class="tituloForm" id="cargar">AGREGAR PRODUCTOS</h1>
+      
+        <form action="{{url_for('agregarProductos')}}" method="POST" enctype="multipart/form-data">
+      
+          <p>{{mensaje}}</p>
+          <p>{{mensaje2}}</p>
+          <h3 class="tituloForm2"> Agregue un producto a la página </h3> <br> 
+          
+          <input class="inputForm" required type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre"/><br>  <br>
+          
+          <!-- check box linea -->
+          
+          <div class="checkboxs">
+            
+            <input class= "checkBoxLinea1" type="radio" id="Seguridad" name="linea" value='Seguridad' /><label class="labelRadio" for="Seguridad" >Seguridad </label>
+              
+            <input class= "checkBoxLinea1" type="radio" id="Nautica" name="linea" value='Nautica'/> <label class="labelRadio"for="Nautica">Nautica </label> 
+              
+              <input class= "checkBoxLinea3" type="radio" id="Industria" name="linea" value='Industria'/> <label class="labelRadio"for="Industria">Industria </label> 
+              
+              <input class= "checkBoxLinea4" type="radio" id="Dispositivos" name="linea" value='Dispositivos'/> <label class="labelRadio"for="Dispositivos" >Dispositivos </label> 
+          </div>
+          <br>
+
+          <input class="inputForm" required type="text" id="categoria" name="categoria" placeholder="Ingrese la categoria" /><br>  <br>
+         
+          <input class="inputForm" required type="text" id="informacion" name="informacion" placeholder="Ingrese la información del producto"/><br>
+      
+  <!-- LAS IMÁGENES SE GUARDAN EN IMAGES/PRODUCTS -->
+          
+          <input id="selecArchivo" required type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none" onchange="detectarImagen()"><br>
+          <button type="button" class="botonSelecArchivos">
+            <label class="tituloForm3" for="selecArchivo" id="selecArchivoLabel"> Adjunte una imagen </label> 
+          </button>
+          <br>
+          <br>
+          <input type="submit" class = "botonVolver" id="send-signup" value="Enviar">
+        </form>
+      
+        <br/>
+        
+        <input class="botonVolver" type="button" onclick="history.back()" name="Volver" value="Volver">
+      </div>
     </div>
   </div>
 {% endblock content %} 

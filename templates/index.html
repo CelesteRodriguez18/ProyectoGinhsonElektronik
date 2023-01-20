@@ -68,10 +68,10 @@
 =            All Category Section            =
 ===========================================-->
 	<a name="servicios" id = "servicios"></a>
-	<section class="section" style="background-color: #e3f1e6;">
+	<section class="section" style="background-color: #DAEBD2;"> 
 		<!-- Container Start -->
 		<div class="container">
-			<div class="row" >
+			<div class="row" > 
 				<div class="col-12">
 					<!-- Section title -->
 					<div class="section-title">
@@ -325,17 +325,14 @@
                       <h2>Contactate con nosotros!</h2>
                       <p><a class="links"></a></p>
                   </div>
-                  <form action="" class="formulario" method="POST">
+                  <form action="" class="formulario" method="POST" id= "form">
                       <input type="text" placeholder="Nombre" id="nombre" name="nombre" required value="">
                       <input type="email" placeholder="Correo" id="correo" name="correo" required value="" class="email">
                       <textarea name="mensaje" id="mensaje" placeholder="Mensaje:"></textarea>
-                     <div class="derecha">
+                      <button type= "submit" class="botonEnviar"> Enviar </button>
                       </div>
-                      <form method="get" action="http://celesrodriguez18@gmail.com.ar/accion.php" 
-                          <input type="submit" value="Enviar" />
-                          
-                          </form>
                   </form>
+                  <a href="mailto:celesrodriguez18@gmail.com" id="linkMail">mail</a>
               </div>
           </section>
         </div>  
@@ -408,7 +405,29 @@
 	<script src="plugins/bootstrap/js/popper.min.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap-slider.js"></script>
+
+  
+  <!-- JAVASCRIPTS NUEVOS -->
+  <script> 
+    const $form = document.querySelector('#form')
+    const $buttonMailTo = document.querySelector('#form')
+    $form.addEventListener('submit', mandarSubmit)
+    function mandarSubmit(params) {
+      event.preventDefault()
+      const form = new FormData(this)
+      console.log(form.get('nombre'))
+      console.log(form.get('correo'))
+      console.log(form.get('mensaje'))
+    
+      $buttonMailTo.setAttribute('href','mailto:celesrodriguez18@gmail.com?subject=${form.get('nombre')}${form.get('correo')}&body=${form.get('mensaje')}')
+      $buttonMailTo.click()
+    }
+  
+  </script>
+  
 	<!-- tether js -->
+
+  
 	<script src="plugins/tether/js/tether.min.js"></script>
 	<script src="plugins/raty/jquery.raty-fa.js"></script>
 	<script src="plugins/slick-carousel/slick/slick.min.js"></script>

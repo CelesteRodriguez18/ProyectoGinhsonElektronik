@@ -57,14 +57,14 @@ function redirigirAdminAgregar() {
 
 function redirigirAdminBorrar() {
   alert('Usted será redirigido a la sección de Borrar Productos')
-  location.href = '/borrarProductos';
+  location.href = '/borrarProductosGeneral';
 }
 
 function redirigirAdminModificar() {
   alert('Usted será redirigido a la sección de Modificar Productos')
   location.href = '/modificarProductos';
 }
-
+/*
 function deseleccionar(check1, check2, check3) {
   if (document.getElementById(check1).checked == true) {
     document.getElementById(check1).checked = false
@@ -76,22 +76,23 @@ function deseleccionar(check1, check2, check3) {
     document.getElementById(check3).checked = false
   }
 }
-
-function eliminar(nombre) {
-  nombre = nombre
-  console.log(nombre)
+*/
+function eliminar(producto) {
+  producto = producto
+  console.log(producto)
   $.ajax({ 
     url:"/eliminar", 
     type:"POST", 
-    data: {"nombre": nombre,
+    data: {"producto": producto,
           }, 
 
-    success: function(response){  
+    success: function(response){
+      console.log(producto)
       datos = (response); 
       console.log(datos)
-      console.log(nombre)
-      document.getElementById(nombre).remove()
-      alert("Se eliminó a " + datos)
+      console.log(producto)
+      document.getElementById(producto).remove()
+      alert("Se eliminó el producto " + datos)
       
     }, 
     error: function(error){ 
@@ -99,6 +100,7 @@ function eliminar(nombre) {
   }, });
 }
 
+/*
 function borrarProductoSeguridad() {
   nombreProductoSeguridad = document.getElementById("nombreProductoSeguridad")
   
@@ -170,6 +172,8 @@ function borrarProductoDispositivos() {
   }, });
 
 }
+*/
+
 // FUNCION GENERAL
 function borrarProducto() {
   nombreProducto = document.getElementById("nombreProducto")

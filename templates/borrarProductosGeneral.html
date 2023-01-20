@@ -3,17 +3,17 @@
   <div class= "rectangulosEliminacion">
     
         <!-- DIV GENERAL 
+
+
     
-    error: 
-jinja2.exceptions.UndefinedError: 'productos' is undefined
- 
-PARA PROBAR: https://proyectoginhsonelektrokik.celesrodriguez.repl.co/borrarProductosGeneral
+    error: NO CARGAN LAS IMÁGENES
+
 
     
     -->
 
     <div class ="rectanguloEliminarProducto">
-        <form action="{{url_for('opcionesBorrarProducto')}}" method="POST">
+        <form action="{{url_for('opcionesBorrarProducto')}}" method="POST" enctype="multipart/form-data">
           <p> {{ mensaje }}</p>
           <label for="nombre"> Ingrese el nombre del producto que desea eliminar: </label>
           <input type="text" id="nombreProducto" name="nombreProducto"style="
@@ -28,18 +28,17 @@ PARA PROBAR: https://proyectoginhsonelektrokik.celesrodriguez.repl.co/borrarProd
         </form>
     
       {% for linea in range (largo) %} 
-      <div id="producto">
-        <h2 class="nombreProduct" style="text-align: center "> {{ productos[linea] }} </h2>
-      <img id="imgProducto" class="imagenesProducto"  alt="{{ productos[linea][1] }} " src = "{{ imagenProductos[linea][1:] }}" onclick="eliminar('{{ productos[linea] }}')"> 
+      <div id="producto" onclick="eliminar('{{ productos[linea] }}')">
+        <h2 class="producto" style="text-align: center " > {{ productos[linea] }} </h2>
+      <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} " src ="{{ imagenProducto[linea][1:] }}" > 
       </div>
+
+      <button type="submit" id="{{ productos[linea] }}" class="botonAdmin" onclick="eliminar('{{ productos[linea] }}')" > <img id="imagenProducto" class="imagenProducto" alt="{{ productos[linea] }}" src="{{ imagenProducto[linea][1:] }}"> {{ productos[linea] }} </button>
       
       {% endfor %}
     
-    </div>
-
+    </div>  
       
-    
-  
   </div>
     <br/>
     
@@ -47,4 +46,6 @@ PARA PROBAR: https://proyectoginhsonelektrokik.celesrodriguez.repl.co/borrarProd
     <input type="button" onclick="history.back()" name="Volver" value="Volver">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
+  <script src="./static/scripts/main.js"></script>
+  
 </div>

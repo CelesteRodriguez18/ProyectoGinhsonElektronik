@@ -59,18 +59,15 @@ label {
 
 /* THA */
 
-.botonAdmin{
-    text-align: center;
-    background: #D88656;
-    border: #D88656;
-    color: #FFEEE4;
-    font-family: 'Pathway Gothic One', sans-serif;
-    margin-top: 2px;
-    height: 30px;
-    border-radius: 10px;
-    font-size: 20px;
-    width: 180px;
+.imagenProducto{
+  width: 15vw;
+  height: 39vh;
+  border-radius: 17px;
+  border: 10px solid white;
+  cursor: pointer;
 }
+
+
 .cajaContenido{
   transition: 0.3s ease-in-out;
 }
@@ -354,7 +351,7 @@ footer .footer-textos p{
     min-width: 100%;
     min-height: 150px;
 }
-.contactoMail  input[type="submit"]{
+.botonEnviar{
     display:block;
     width: 100px;
     margin:10px 0;
@@ -367,7 +364,7 @@ footer .footer-textos p{
     margin: auto;
 
 }
-.contactoMail  input[type="submit"]:hover{
+.botonEnviar:hover{
     background: #3C6A20;
     color: #ffff;
 }
@@ -377,7 +374,9 @@ footer .footer-textos p{
   flex-wrap: wrap;
 }
 
-
+#linkMail{
+  opacity: 0%;
+}
 
 
 
@@ -2970,6 +2969,12 @@ form textarea {
   text-decoration: none;
 }
 
+@media screen and (max-width:){
+  .contenedorChico{
+    width: 100%;
+  }
+}
+
 .contenedorGrande{
   background: #fff;
   width:100vw;
@@ -2980,6 +2985,8 @@ form textarea {
 }
 
 .contenedorChico{
+  width:40vw;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2987,8 +2994,6 @@ form textarea {
   background: #3c6a20;
   text-align: center;
   border-radius: 10px;
-  width:40vw;
-  height: 50vh;
   display: inline-block;
   margin-top: 10vw;
   margin-right: auto;
@@ -3091,11 +3096,150 @@ form textarea {
   /*padding-left: 5%;*/
 }
 
-
-
 .microChip overly bg-3 section-sm{
   text-aling: center;
   display: flex;
+}
+
+/* AGREGAR PRODUCTO*/
+
+.checkboxs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Muli", sans-serif;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.checkBoxLinea1{
+  height: 15px;
+  width: 15px;
+  margin-right:10px;
+  margin-left:10px;
+}
+
+.checkBoxLinea2{
+   height: 15px;
+  width: 15px;
+  margin-right:10px;
+  margin-left:10px;
+}
+
+.checkBoxLinea3{
+  height: 15px;
+  width: 15px;
+  margin-right:10px;
+  margin-left:10px;
+}
+
+.checkBoxLinea4{
+  height: 15px;
+  width: 15px;
+  margin-right:10px;
+  margin-left:10px;
+}
+
+.label{
+  color: #fff;
+}
+.botonSelecArchivos{
+  text-align: center;
+  background-color: #619640;
+  border:  #619640;
+  color:  #fff;
+  font-family: "Muli", sans-serif;
+  margin-top: 2px;
+  font-size: 20px;
+  width: 65%;
+  height: 20%;
+  border-bottom-style: ridge;
+}
+
+.rectanguloForm{
+  /*height: calc(100% - 20px);
+  padding: 10px;
+  width: calc(100vw - 20px);*/
+  width: 40vw;
+  height: 80vh;
+  text-align: center;
+  background-color: #3c6a20;
+  color: #ffff;
+  border-radius: 10px;
+  margin-top: 6vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+}
+
+.tituloForm{
+  font-family: "Muli", sans-serif;
+  font-size: 30px;
+  color: #fff;
+}
+
+.tituloForm2{
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.tituloForm3{
+  font-family: "Muli", sans-serif;
+  font-size: 15px;
+  color: #fff;
+}
+
+.inputForm{
+  background-color: #fff;
+  width: 65%;
+  height: 20%;
+  border-style: solid;
+  border: #Fff;
+  border-width: 2px;
+  color: #dedede;
+  margin-top: 0.3%;
+  font-size: 16px;
+  border-bottom-style: ridge;
+}
+
+.botonAdmin{
+  text-align: center;
+  border: #3c6a20;;
+  font-family: "Muli", sans-serif;
+  margin-top: 2px;
+  font-size: 15px;
+  color: #3c6a20;
+  text-align: center;
+  background-color: #619640;
+  width:8vw;
+  height: 4vh;
+}
+
+.botonVolver{
+  text-align: center;
+  border: #3c6a20;;
+  font-family: "Muli", sans-serif;
+  margin-top: 2px;
+  font-size: 15px;
+  color: #3c6a20;
+  text-align: center;
+  background-color: #619640;
+  width:8vw;
+  height: 4vh;
+}
+.button:hover {
+  background: #619640;
+}
+
+.opciones{
+  background: #fff;
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 /*# sourceMappingURL=maps/style.css.map */
