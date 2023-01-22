@@ -2977,7 +2977,6 @@ form textarea {
 
 .contenedorGrande{
   background: #fff;
-  width:100vw;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -3077,6 +3076,7 @@ form textarea {
   background-color: #619640;
   width:8vw;
   height: 4vh;
+  padding:5px
 }
 
 .tituloAdmin{
@@ -3143,6 +3143,7 @@ form textarea {
 .label{
   color: #fff;
 }
+
 .botonSelecArchivos{
   text-align: center;
   background-color: #619640;
@@ -3156,6 +3157,20 @@ form textarea {
   border-bottom-style: ridge;
 }
 
+.contenedorProductos{
+  text-align: center;
+  background-color: #3c6a20;
+  color: #ffff;
+  border-radius: 10px;
+  margin-top: 6vw;
+  padding-top: 50px;
+  padding: 10px;
+  padding-top: 30px;
+  margin: 20px;
+  max-width:40vw;
+}
+    
+}
 .rectanguloForm{
   /*height: calc(100% - 20px);
   padding: 10px;
@@ -3197,7 +3212,7 @@ form textarea {
   border-style: solid;
   border: #Fff;
   border-width: 2px;
-  color: #dedede;
+  /*color: #dedede;*/
   margin-top: 0.3%;
   font-size: 16px;
   border-bottom-style: ridge;
@@ -3212,8 +3227,8 @@ form textarea {
   color: #3c6a20;
   text-align: center;
   background-color: #619640;
-  width:8vw;
   height: 4vh;
+  padding: 5px;
 }
 
 .botonVolver{
