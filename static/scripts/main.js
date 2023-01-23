@@ -50,6 +50,18 @@ function detectarImagen() {
   }
 }
 
+function detectarImagenMod() {
+  let cargadorImagenes = document.getElementById("selecArchivo");
+  if(cargadorImagenes.files.length > 0) {
+    //Tengo imagenes subidas
+    document.getElementById("selecArchivoLabel").innerHTML = "Imágen Adjunta";
+  }
+  else {
+    document.getElementById("selecArchivoLabel").innerHTML = "Adjunte una imagen";
+  }
+}
+
+
 function redirigirAdminAgregar() {
   alert('Usted será redirigido a la sección de Agregar Productos')
   location.href = '/agregarProductos';
@@ -110,6 +122,31 @@ function modificar(producto) {
     type:"POST", 
     data: {"producto": producto,
            "info": info,
+          }, 
+
+    success: function(response){ 
+      console.log(producto)
+      datos = (response); 
+      console.log(datos)
+      console.log(producto)
+      alert("Se modificó el producto: "+ datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+function modificarImagen(producto) {
+  producto = producto
+  selecArchivo = document.getElementById("selecArchivo").value;
+  console.log(producto)
+  console.log(selecArchivo)
+  $.ajax({ 
+    url:"/modificarImagen", 
+    type:"POST", 
+    data: {"producto": producto,
+           "selecArchivo": selecArchivo,
           }, 
 
     success: function(response){ 

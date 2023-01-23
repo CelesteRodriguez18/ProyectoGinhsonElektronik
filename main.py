@@ -214,6 +214,31 @@ def modificar():
     else:
       return redirect('/admin')
 
+@app.route('/modificarImagen',  methods=["POST", "GET"])
+def modificarImagen():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      print("hla")
+      producto = request.form["producto"]
+      print("hla2")
+      print(producto)
+      file2 = request.files['imagen']
+      print(file2)
+      filename2 = secure_filename(file2.filename)
+      file_path2 = os.path.join(app.config['UPLOAD_FOLDER'], filename2)
+      file.save(file_path2)
+      print(file_path2)
+      conn = sqlite3.connect('ginhsonElektronik.db')     
+      q = f"""UPDATE Productos SET imagen = '{file_path2}' WHERE nombre = '{producto}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      print(producto)
+      return jsonify(producto)
+    else:
+      return redirect('/admin')
+
+
   
 @app.route('/borrarProductosGeneral', methods=["GET", "POST"])
 def borrarProductosGeneral():
