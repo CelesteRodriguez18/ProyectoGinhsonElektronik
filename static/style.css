@@ -1,5 +1,6 @@
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
+<style>
 *{
   box-sizing: border-box;
   padding:0px;
@@ -7,7 +8,7 @@
 }
 body {
   line-height: 1.5;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 html {
@@ -15,14 +16,14 @@ html {
 }
 
 p, li, input, select, button {
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   color: #666;
   font-size: 14px;
   font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-weight: 600;
   color: #333;
 }
@@ -2997,7 +2998,7 @@ form textarea {
   margin-top: 10vw;
   margin-right: auto;
   margin-left: auto;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 10px;
   line-height: 3.5;
   box-sizing: inherit;
@@ -3055,7 +3056,7 @@ form textarea {
 .botonIngresar{
   text-align: center;
   border: #3c6a20;;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-top: 2px;
   font-size: 15px;
   color: #3c6a20;
@@ -3068,7 +3069,7 @@ form textarea {
 .botonVolver{
   text-align: center;
   border: #3c6a20;;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-top: 2px;
   font-size: 15px;
   color: #3c6a20;
@@ -3080,13 +3081,13 @@ form textarea {
 }
 
 .tituloAdmin{
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 30px;
   color: #fff;
 }
 
 .alt-color{
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-right: auto;
   margin-left: auto;
   text-aling: center;
@@ -3107,7 +3108,7 @@ form textarea {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-right: auto;
   margin-left: auto;
 }
@@ -3149,7 +3150,7 @@ form textarea {
   background-color: #619640;
   border:  #619640;
   color:  #fff;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-top: 2px;
   font-size: 20px;
   width: 65%;
@@ -3188,19 +3189,19 @@ form textarea {
 }
 
 .tituloForm{
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 30px;
   color: #fff;
 }
 
 .tituloForm2{
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 20px;
   color: #fff;
 }
 
 .tituloForm3{
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 15px;
   color: #fff;
 }
@@ -3221,7 +3222,7 @@ form textarea {
 .botonAdmin{
   text-align: center;
   border: #3c6a20;;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-top: 2px;
   font-size: 15px;
   color: #3c6a20;
@@ -3234,7 +3235,7 @@ form textarea {
 .botonVolver{
   text-align: center;
   border: #3c6a20;;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   margin-top: 2px;
   font-size: 15px;
   color: #3c6a20;

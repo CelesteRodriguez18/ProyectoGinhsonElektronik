@@ -6,7 +6,36 @@
     <div class="contenedorProductos" id= #borrarProductos> 
       <div class="formModificar"> 
         <h1 class="tituloForm">MODIFICAR PRODUCTOS</h1>
+      <form action="{{url_for('opcionesModificarGato')}}" method="POST">
+          <p> {{ mensajeG }}</p>
+          <label for="nombre"> Ingrese el nombre del gato que desea modificar cierta información: </label>
+          <input type="text" id="nombreGato" name="nombreGato" style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+          <button type="submit" class="botonAdmin" onclick="modificarProducto()"> BUSCAR</button>
+
+        </form>
+
       
+      {% for linea in range (largo) %} 
+      <div id="{{ gatos[linea] }}">
+        <h2 class="nombreMascota" style="text-align: center "> {{ gatos[linea] }} </h2>
+      <img id="animal" class="imagenesAnimales"  alt="{{ gatos[linea][1] }} " src = "{{ imagenGatos[linea][1:] }}" > 
+      </div>
+       <label for="nombre"> Ingrese la información que desea modificar: </label>
+      <input type="text" id="info" name="info" style="
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-bottom-style: ridge;
+"/><br>
+          <button type="submit" class="botonAdmin" onclick="modificar('{{ gatos[linea] }}', 'gato')"> MODIFICAR</button>
+      {% endfor %}
+    
+    </div>
         
         <br/>
         <input type="button" onclick="history.back()" name="Volver" value="Volver"class="botonAdmin" >

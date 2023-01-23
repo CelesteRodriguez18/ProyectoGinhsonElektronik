@@ -8,7 +8,7 @@ import smtplib
 
 from flask_mail import Message, Mail  
 
-UPLOAD_FOLDER = './images/products'
+UPLOAD_FOLDER = './static/products'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
