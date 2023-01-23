@@ -92,7 +92,32 @@ function eliminar(producto) {
       console.log(datos)
       console.log(producto)
       document.getElementById(producto).remove()
-      alert("Se eliminó el producto " + datos)
+      alert("Se eliminó el producto: " + datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+function modificar(producto) {
+  producto = producto
+  info = document.getElementById("info").value;
+  console.log(producto)
+  console.log(info)
+  $.ajax({ 
+    url:"/modificar", 
+    type:"POST", 
+    data: {"producto": producto,
+           "info": info,
+          }, 
+
+    success: function(response){ 
+      console.log(producto)
+      datos = (response); 
+      console.log(datos)
+      console.log(producto)
+      alert("Se modificó el producto: "+ datos)
       
     }, 
     error: function(error){ 
@@ -180,6 +205,25 @@ function borrarProducto() {
   
   $.ajax({ 
     url:"/opcionesBorrarProducto", 
+    type:"POST", 
+    data: {"nombreProducto": nombreProducto,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+function modificarProducto() {
+  nombreProducto = document.getElementById("nombreProducto")
+  console.log(nombreProducto)
+  
+  $.ajax({ 
+    url:"/opcionesModificar", 
     type:"POST", 
     data: {"nombreProducto": nombreProducto,
           }, 

@@ -150,9 +150,71 @@ def borrarProductos():
 
 @app.route('/modificarProductos', methods=["GET", "POST"])
 def modificarProductos():
-  print("modificar productos")
-  return render_template('modificarProductos.html')
+  if session['sesion'] == True:
+    largo = 0
+    return render_template('modificarProductos.html', largo = largo)
+  else:
+    return redirect('/admin')
 
+@app.route('/opcionesModificar',  methods=["GET", "POST"])
+def opcionesModificar():
+  if (request.method == "POST"):
+    print('hola')
+    '''
+    producto = request.form["nombreProducto"]
+    print(producto)
+    '''
+    if session['sesion'] == True:
+      if (request.form["nombreProducto"] != ""):
+        producto = request.form["nombreProducto"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        producto = producto.capitalize()
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        print(producto)
+        resu = conn.execute(r)
+        lista = resu.fetchall()
+        nombreProducto = []
+        imagenProducto = []
+        for i in lista:
+          nombreProducto.append(i[0])
+        print(nombreProducto)
+        for i in lista:
+          imagenProducto.append(i[-1])
+        print(imagenProducto)
+        largo = len(nombreProducto)
+        conn.commit()      
+        conn.close()
+        print(imagenProducto)
+        return render_template('modificarProductos.html', productos = nombreProducto, imagenProducto = imagenProducto, largo = largo)
+      else:
+        mensaje = "Ingrese un nombre"
+        return render_template('modificarProductos.html', mensaje = mensaje, largo = largo)
+    else:
+      return redirect('/admin')  
+  else:
+    return redirect('/modificarProductos', largo = largo)
+
+@app.route('/modificar',  methods=["POST", "GET"])
+def modificar():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      print("hla")
+      producto = request.form["producto"]
+      info = request.form["info"]
+      print("hla2")
+      print(producto)
+      print(info)
+      conn = sqlite3.connect('ginhsonElektronik.db')     
+      q = f"""UPDATE Productos SET informacion = '{info}' WHERE nombre = '{producto}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      print(producto)
+      return jsonify(producto)
+    else:
+      return redirect('/admin')
+
+  
 @app.route('/borrarProductosGeneral', methods=["GET", "POST"])
 def borrarProductosGeneral():
   if session['sesion'] == True:

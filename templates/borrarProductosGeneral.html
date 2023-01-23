@@ -3,20 +3,12 @@
 <body>
   {% block content %}
   <div class="contenedorGrande">
-    <div class="contenedorProductos" id= #borrarProductos> 
+    <div class="borrarP" id= #borrarProductos> 
       <div class="formEliminar"> 
           <h1 class="tituloForm" >ELIMINAR PRODUCTOS</h1>
         <div class= "rectangulosEliminacion">
           
-              <!-- DIV GENERAL 
-      
-      
-          
-          error: NO CARGAN LAS IMÁGENES
-      
-      
-          
-          -->
+              <!-- DIV GENERAL -->
       
           <div class ="rectanguloEliminarProducto">
               <form action="{{url_for('opcionesBorrarProducto')}}" method="POST" enctype="multipart/form-data">
