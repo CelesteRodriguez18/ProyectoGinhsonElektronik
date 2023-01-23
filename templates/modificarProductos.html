@@ -2,70 +2,77 @@
 
 <body>
   {% block content %}
-  <div class="contenedorGrande">
-    <div class="borrarP" id= #borrarProductos> 
-      <div class="formModificar"> 
-        <h1 class="tituloForm">MODIFICAR INFORMACIÓN</h1>
-      <form action="{{url_for('opcionesModificar')}}" method="POST" enctype="multipart/form-data">
-          <p> {{ mensaje }}</p>
-          <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la información: </label>
-          <input class="inputForm" required type="text" id="nombreProducto" name="nombreProducto" placeholder="Producto a modificar" /><br>  <br>
-          <button type="submit" class="botonAdmin" onclick="modificarProducto()"> Buscar</button>
-
-        </form>
-
-      
-      {% for linea in range (largo) %} 
-      <div id="producto">
-        <h2 class="producto" style="text-align: center "> {{ productos[linea] }} </h2>
-      <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} " src = "{{ imagenProducto[linea][1:] }}" > 
-      </div>
-       <label for="info"> Ingrese la información que desea modificar: </label>
-      <input type="text" id="info" name="info" placeholder="Información" /><br>  <br>
-          <button type="submit" onclick="modificar('{{ productos[linea] }}')"> Modificar Información</button>
-      {% endfor %}
-    
-    </div>
-    </div>
-  </div>  
-    <br/>
-  <div class="contenedorGrande">
-    <div class="borrarP" id= #borrarProductos> 
-      <div class="formModificar"> 
-        <h1 class="tituloForm">MODIFICAR IMAGEN</h1>
-      <form action="{{url_for('opcionesModificar')}}" method="POST" enctype="multipart/form-data">
-          <p> {{ mensaje }}</p>
-          <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la imagen: </label>
-          <input class="inputForm" required type="text" id="nombreProducto" name="nombreProducto" placeholder="Producto a modificar" /><br>  <br>
-          <button type="submit" class="botonAdmin" onclick="modificarProducto()"> Buscar</button>
-
-        </form>
-
-      
-      {% for linea in range (largo) %} 
-      <div id="producto">
-        <h2 class="producto" style="text-align: center "> {{ productos[linea] }} </h2>
-      <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} " src = "{{ imagenProducto[linea][1:] }}" > 
-      </div>
-       <label for="imagen"> Ingrese la imagen que desea modificar: </label>
-      <input id="selecArchivo" type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none" onchange="detectarImagenMod()"><br>
-          <button type="button" class="botonSelecArchivos">
-            <label class="tituloForm3" for="selecArchivo" id="selecArchivoLabel"> Adjunte una imagen </label> 
-          </button>
-          <br>
-          <br>
-          <button type="submit" onclick="modificarImagen('{{ productos[linea] }}')"> Modificar Imagen</button>
-      {% endfor %}
-    
-    </div>
+  <div class="modificarFlex">
+    <div class="contenedorGrande">
+      <div class="borrarP" id= #borrarProductos> 
+        <div class="formModificar"> 
+          <h1 class="tituloForm">MODIFICAR INFORMACIÓN</h1>
+        <form action="{{url_for('opcionesModificar')}}" method="POST" enctype="multipart/form-data">
+            <p> {{ mensaje }}</p>
+            <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la información: </label>
+            <input class="inputForm" required type="text" id="nombreProducto" name="nombreProducto" placeholder="Producto a modificar" /><br>  <br>
+            <button type="submit" class="botonAdmin" onclick="modificarProducto()"> Buscar</button>
+  
+          </form>
+  
         
-        <br/>
+        {% for linea in range (largo) %} 
+        <div id="producto">
+          <h2 class="producto" style="text-align: center "> {{ productos[linea] }} </h2>
+        <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} " src = "{{ imagenProducto[linea][1:] }}" > 
+        </div>
+         <label for="info"> Ingrese la información que desea modificar: </label>
+        <input type="text" id="info" name="info" placeholder="Información" /><br>  <br>
+            <button type="submit" onclick="modificar('{{ productos[linea] }}')"> Modificar Información</button>
+        {% endfor %}
       
-        <input type="button" onclick="history.back()" name="Volver" value="Volver"class="botonAdmin" >
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-          </script>
-        <script src="./static/scripts/main.js"></script>
       </div>
-    </div>
+         
+          <br/>
+        
+          <input type="button" onclick="history.back()" name="Volver" value="Volver"class="botonAdmin" >
+        
+      </div>
+    </div>  
+      <br/>
+    <div class="contenedorGrande">
+      <div class="borrarP" id= #borrarProductos> 
+        <div class="formModificar"> 
+          <h1 class="tituloForm">MODIFICAR IMAGEN</h1>
+        <form action="{{url_for('opcionesModificar')}}" method="POST" enctype="multipart/form-data">
+            <p> {{ mensaje }}</p>
+            <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la imagen: </label>
+            <input class="inputForm" required type="text" id="nombreProducto" name="nombreProducto" placeholder="Producto a modificar" /><br>  <br>
+            <button type="submit" class="botonAdmin" onclick="modificarProducto()"> Buscar</button>
+  
+          </form>
+  
+        
+        {% for linea in range (largo) %} 
+        <div id="producto">
+          <h2 class="producto" style="text-align: center "> {{ productos[linea] }} </h2>
+        <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} " src = "{{ imagenProducto[linea][1:] }}" > 
+        </div>
+         <label for="imagen"> Ingrese la imagen que desea modificar: </label>
+        <input id="selecArchivo" type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none" onchange="detectarImagenMod()"><br>
+            <button type="button" class="botonSelecArchivos">
+              <label class="tituloForm3" for="selecArchivo" id="selecArchivoLabel"> Adjunte una imagen </label> 
+            </button>
+            <br>
+            <br>
+            <button type="submit" onclick="modificarImagen('{{ productos[linea] }}')"> Modificar Imagen</button>
+        {% endfor %}
+      
+      </div>
+          
+          <br/>
+        
+          <input type="button" onclick="history.back()" name="Volver" value="Volver"class="botonAdmin" >
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+            </script>
+          <script src="./static/scripts/main.js"></script>
+        </div>
+      </div>
+</div>
 {% endblock content %} 
 </body>

@@ -140,13 +140,15 @@ function modificar(producto) {
 function modificarImagen(producto) {
   producto = producto
   selecArchivo = document.getElementById("selecArchivo").value;
+  imagen = selecArchivo.slice(12)
   console.log(producto)
   console.log(selecArchivo)
+  console.log(imagen)
   $.ajax({ 
     url:"/modificarImagen", 
     type:"POST", 
     data: {"producto": producto,
-           "selecArchivo": selecArchivo,
+           "imagen": imagen,
           }, 
 
     success: function(response){ 

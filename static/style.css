@@ -1,5 +1,7 @@
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 *{
   box-sizing: border-box;
   padding:0px;
@@ -13,7 +15,37 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/*inicio*/
 
+.inicioMenu{
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-around;
+  padding:5px;
+}
+
+.infoMenu{
+  margin-top:40px;
+}
+
+.tituloMenu{
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 73px;
+  color: #3C6A20;
+}
+.subtituloMenu{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37px;
+  color: #888888;
+  padding-bottom: 30px;
+}
 p, li, input, select, button {
   font-family: "Muli", sans-serif;
   color: #666;
@@ -84,11 +116,13 @@ nav{
 }
 .enlace{
   position: absolute;
-  padding: 20px 50px;
 }
 .logo{
   height:50px;
   transition: none;
+  height: 75px;
+  transition: none;
+  margin-top: 5px;
 }
 nav ul {
   float:right;
@@ -151,6 +185,10 @@ iframe{
 }
 /*tamaño dispositivo pequeño celular*/
 @media (max-width : 858px){
+
+  .infoMenu{
+    text-align: center;
+  }
   .checkbtn{
     display: block;
   }
@@ -199,6 +237,18 @@ iframe{
   .contactoMail{
     padding:50px 0;
   }
+  .dispositivos img, .industria img, .nautica img, .seguridad img{
+    width: 160px;
+    height: 150px;
+  }
+  p.tituloProductos{
+    font-size: 20px;
+  }
+
+  .tituloForm4{
+    font-size:20px;}
+  .main-nav .nav-item .nav-link {
+    font-size:20px;}
  /* VER COMO HACER LA CRUX CUANDO SE ABRE EL NAV 
 .fas fa-bars, 
 .navClose{
@@ -219,12 +269,14 @@ iframe{
 }
 /*celulares  mas chicos*/
 @media (max-width : 500px){
-    
+    .imagenInicio{
+      width: 350px;}
     iframe{
     width:400px;
     margin:5px;
     height: 400px;
   }
+  
 }
 /*
 .nav-pills .nav-link {
@@ -894,9 +946,8 @@ ul.pagination .active a {
 .bg-gray {
   background: #F5F5F5;
 }
-/*imagen horrorosa del fondo a cambiar*/
 .bg-1 {
-  background: url("img/home/slider3.jpg");
+  background-color:#DAEBD2;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -3049,7 +3100,8 @@ form textarea {
 .contenedorChico2 {
   flex: 1 1 auto;
   padding: 1.25rem;
-  display: inline-block;
+display: inline-block;
+  /*macaaa mira wpp*/
 }
 
 .botonIngresar{
@@ -3074,7 +3126,6 @@ form textarea {
   color: #3c6a20;
   text-align: center;
   background-color: #619640;
-  width:8vw;
   height: 4vh;
   padding:5px
 }
@@ -3157,6 +3208,7 @@ form textarea {
   border-bottom-style: ridge;
 }
 .borrarP{
+  min-width:30vh;
   text-align: center;
   background-color: #3c6a20;
   color: #ffff;
@@ -3189,8 +3241,14 @@ form textarea {
     margin-bottom: 40px;
     overflow-y: visible;
     overflow-x: hidden;*/
-
+.modificarFlex{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+}
 .contenedorProductos{
+  min-width:30vh;
   text-align: center;
   background-color: #3c6a20;
   color: #ffff;
@@ -3240,8 +3298,9 @@ form textarea {
 
 .tituloForm4{
   font-family: "Muli", sans-serif;
-  font-size: 35px;
+  /*font-size: 35px;*/
   color: #fff;
+
 }
 .inputForm{
   background-color: #fff;
@@ -3277,7 +3336,6 @@ form textarea {
   color: #3c6a20;
   text-align: center;
   background-color: #619640;
-  width:8vw;
   height: 4vh;
 }
 .button:hover {
@@ -3294,6 +3352,7 @@ form textarea {
 }
 
 .botonAdmin2{
+  min-width: 20vw;
   text-align: center;
   border: #3c6a20;;
   font-family: "Muli", sans-serif;
@@ -3302,8 +3361,66 @@ form textarea {
   color: #3c6a20;
   text-align: center;
   background-color: #619640;
-  width:12vw;
   height: 4vh;
   padding:5px
 }
+
+.iconosProductos{
+  padding-top: 200px;
+  padding-bottom: 130px;
+  margin-bottom: 5%;
+  width:100%;
+  height: 40vh;
+  display:flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tituloProductos{
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  align-items: center;
+  text-align: center;
+  color: #888888;
+  }
+ /*
+.seguridad{
+  margin-left: -70px;
+  width:100px;
+  height: 100px;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.nautica{
+  width:100px;
+  height: 100px;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.industria{
+  width:100px;
+  height: 100px;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.dispositivos{
+  width:100px;
+  height: 100px;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+*/
 /*# sourceMappingURL=maps/style.css.map */
