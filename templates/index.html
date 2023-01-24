@@ -52,7 +52,7 @@ A partir del año 2005, se funda en Argentina GINHSON Elektronik, desarrollando 
     display: block;
     margin: auto;
 ">
-  					 <img src= "{{ url_for('static', filename='img/pablo.jpeg') }}" style="border-radius: 50%;     margin: 20px"
+  					 <img src= "{{ url_for('static', filename='img/logoVerde.png') }}" style="border-radius: 50%;height: 200px;margin: 20px"
   						class="img-fluid img-thumbnail" alt="...">
   				  </div>
           </div>
@@ -79,15 +79,15 @@ A partir del año 2005, se funda en Argentina GINHSON Elektronik, desarrollando 
 					<div class="row" id="serviciosFlex">
 						<!-- Category list -->
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12" data-wow-delay="5s">
-							<div class="category-block bg-white">
-								<div class="header">
-									<img src= "{{ url_for('static', filename='img/icons/hardware.png') }}" alt="">
-									<h4>Diseño de Hardware</h4>
-								</div>
-								<p>
-									Diseño de circuitos analógicos y digitales. Diseño de circuitos con microcontroladores. Diseños de PCB y diseño mecánico. Prototipos en 3D para facilitar el diseño de matrices y soportes.
-								</p>
-							</div>
+              <div class="category-block bg-white">
+                <div class="header">
+                  <img src= "{{ url_for('static', filename='img/icons/hardware.png') }}" alt="">
+                  <h4>Diseño de Hardware</h4>
+                </div>
+                <p>
+                  Diseño de circuitos analógicos y digitales. Diseño de circuitos con microcontroladores. Diseños de PCB y diseño mecánico. Prototipos en 3D para facilitar el diseño de matrices y soportes.
+                </p>
+              </div>
 						</div> <!-- /Category List -->
 						<!-- Category list -->
 						<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-12 col-12">
@@ -210,20 +210,23 @@ A partir del año 2005, se funda en Argentina GINHSON Elektronik, desarrollando 
   				</div>
         </div>
         <div>
-          <section class="contactoMail" id="contactoMail">
+          <section class="contactoMail" id="contactoMail"> 
               <div class="contenedor">
                   <div class="footer-textos">
                       <h2>Contactate con nosotros!</h2>
                       <p><a class="links"></a></p>
                   </div>
-                  <form action="" class="formulario" method="POST" id= "form">
+                  <form action="https://formsubmit.co/42b20b6d34c448a97818d402462eed1c" class="formulario" method="POST" id="form">
                       <input type="text" placeholder="Nombre" id="nombre" name="nombre" required value="">
                       <input type="email" placeholder="Correo" id="correo" name="correo" required value="" class="email">
                       <textarea name="mensaje" id="mensaje" placeholder="Mensaje:"></textarea>
                       <button type= "submit" class="botonEnviar"> Enviar </button>
                       </div>
+            <input type="hidden" name="_next" value="https://proyectoginhsonelektrokik.celesrodriguez.repl.co/">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
                   </form>
-                  <a href="mailto:celesrodriguez18@gmail.com" id="linkMail">mail</a>
+                  <!--<a href="mailto:celesrodriguez18@gmail.com" id="linkMail">mail</a>-->
               </div>
           </section>
         </div>  

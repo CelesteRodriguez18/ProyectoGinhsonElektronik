@@ -1,14 +1,3 @@
-/*
-const toggle = document.querySelector('.toggle')
-const links = document.querySelector('.links')
-
-toggle.addEventListener('click', () => {
-    toggle.classList.toggle('rotate')
-    links.classList.toggle('inactive')
-})
-*/
-
-
 function formularioAdmin() {
   var usuario = document.getElementById("usuario")
   var password = document.getElementById("password") 
@@ -39,11 +28,14 @@ function formularioAdmin() {
   }, });
 }
 
+// FUNCIONES DE ADMINISTRADOR
+
+// IMÁGENES
 function detectarImagen() {
   let cargadorImagenes = document.getElementById("selecArchivo");
   if(cargadorImagenes.files.length > 0) {
     //Tengo imagenes subidas
-    document.getElementById("selecArchivoLabel").innerHTML = "Imágen Adjunta";
+    document.getElementById("selecArchivoLabel").innerHTML = "Imagen Adjunta";
   }
   else {
     document.getElementById("selecArchivoLabel").innerHTML = "Adjunte una imagen";
@@ -51,17 +43,17 @@ function detectarImagen() {
 }
 
 function detectarImagenMod() {
-  let cargadorImagenes = document.getElementById("selecArchivo");
+  let cargadorImagenes = document.getElementById("imagen");
   if(cargadorImagenes.files.length > 0) {
     //Tengo imagenes subidas
-    document.getElementById("selecArchivoLabel").innerHTML = "Imágen Adjunta";
+    document.getElementById("selecArchivoLabel").innerHTML = "Imagen Adjunta";
   }
   else {
     document.getElementById("selecArchivoLabel").innerHTML = "Adjunte una imagen";
   }
 }
 
-
+// REDIRIGIR A LAS OPCIONES
 function redirigirAdminAgregar() {
   alert('Usted será redirigido a la sección de Agregar Productos')
   location.href = '/agregarProductos';
@@ -76,19 +68,8 @@ function redirigirAdminModificar() {
   alert('Usted será redirigido a la sección de Modificar Productos')
   location.href = '/modificarProductos';
 }
-/*
-function deseleccionar(check1, check2, check3) {
-  if (document.getElementById(check1).checked == true) {
-    document.getElementById(check1).checked = false
-  }
-  if (document.getElementById(check2).checked == true) {
-    document.getElementById(chec2).checked = false
-  }
-  if (document.getElementById(check3).checked == true) {
-    document.getElementById(check3).checked = false
-  }
-}
-*/
+
+// BORRAR PRODUCTOS
 function eliminar(producto) {
   producto = producto
   console.log(producto)
@@ -112,6 +93,25 @@ function eliminar(producto) {
   }, });
 }
 
+function borrarProducto() {
+  nombreProducto = document.getElementById("nombreProducto")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarProducto", 
+    type:"POST", 
+    data: {"nombreProducto": nombreProducto,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+// MODIFICAR PRODUCTOS
 function modificar(producto) {
   producto = producto
   info = document.getElementById("info").value;
@@ -139,10 +139,8 @@ function modificar(producto) {
 
 function modificarImagen(producto) {
   producto = producto
-  selecArchivo = document.getElementById("selecArchivo").value;
-  imagen = selecArchivo.slice(12)
+  imagen = document.getElementById("imagen").files[0].name;
   console.log(producto)
-  console.log(selecArchivo)
   console.log(imagen)
   $.ajax({ 
     url:"/modificarImagen", 
@@ -164,99 +162,6 @@ function modificarImagen(producto) {
   }, });
 }
 
-/*
-function borrarProductoSeguridad() {
-  nombreProductoSeguridad = document.getElementById("nombreProductoSeguridad")
-  
-  $.ajax({ 
-    url:"/opcionesBorrarProductoSeguridad", 
-    type:"POST", 
-    data: {"nombreProductoSeguridad": nombreProductoSeguridad,
-          }, 
-
-    success: function(response){  
-      datos = response
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-
-function borrarProductoNautica() {
-  nombreProductoNautica = document.getElementById("nombreProductoNautica")
-  
-  $.ajax({ 
-    url:"/opcionesBorrarProductoNautica", 
-    type:"POST", 
-    data: {"nombreProductoNautica": nombreProductoNautica,
-          }, 
-
-    success: function(response){  
-      datos = response
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-
-function borrarProductoIndustria() {
-  nombreProductoIndustria = document.getElementById("nombreProductoIndustria")
-  
-  $.ajax({ 
-    url:"/opcionesBorrarProductoIndustria", 
-    type:"POST", 
-    data: {"nombreProductoIndustria": nombreProductoIndustria,
-          }, 
-
-    success: function(response){  
-      datos = response
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-
-function borrarProductoDispositivos() {
-  nombreProductoDispositivos = document.getElementById("nombreProductoDispositivos")
-  
-  $.ajax({ 
-    url:"/opcionesBorrarProductoDispositivos", 
-    type:"POST", 
-    data: {"nombreProductoDispositivos": nombreProductoDispositivos,
-          }, 
-
-    success: function(response){  
-      datos = response
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-*/
-
-// FUNCION GENERAL
-function borrarProducto() {
-  nombreProducto = document.getElementById("nombreProducto")
-  
-  $.ajax({ 
-    url:"/opcionesBorrarProducto", 
-    type:"POST", 
-    data: {"nombreProducto": nombreProducto,
-          }, 
-
-    success: function(response){  
-      datos = response
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-
 function modificarProducto() {
   nombreProducto = document.getElementById("nombreProducto")
   console.log(nombreProducto)
@@ -275,3 +180,46 @@ function modificarProducto() {
   }, });
 
 }
+
+/* FORMULARIO CONTACTO
+
+function formulario() {
+  var nombre = document.getElementById("nombre").value 
+  var correo = document.getElementById("correo").value 
+  var mensaje = document.getElementById("mensaje").value  
+
+  console.log(nombre)
+  console.log(correo)
+  console.log(mensaje)
+
+  var contieneArroba = false
+  if (correo.includes('@')){
+    contieneArroba = true
+  }
+  if (nombre.length == 0 || correo.length == 0 || mensaje.length == 0 || contieneArroba == false)  {
+    alert("Faltan ingresar datos")
+    return 0;
+  }
+  
+  
+  $.ajax({ 
+    url:"/contacto", 
+    type:"POST", 
+    data: {"nombre": nombre,
+          "correo": correo,
+          "mensaje": mensaje,
+          }, 
+
+    success: function(response){  
+      datos = response
+      //if(datos == true) {
+      alert(`Se registró su respuesta`)
+      location.href= '/'
+      //}
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+*/

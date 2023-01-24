@@ -33,7 +33,7 @@ html {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
-  font-size: 60px;
+  font-size: 55px;
   line-height: 73px;
   color: #3C6A20;
 }
@@ -185,7 +185,6 @@ iframe{
 }
 /*tamaño dispositivo pequeño celular*/
 @media (max-width : 858px){
-
   .infoMenu{
     text-align: center;
   }
@@ -246,9 +245,36 @@ iframe{
   }
 
   .tituloForm4{
-    font-size:20px;}
+    font-size:20px;
+  }
   .main-nav .nav-item .nav-link {
-    font-size:20px;}
+    font-size:20px;
+  }
+
+  .contenedorChico{
+    min-width: 350px;
+  }
+  
+  #usuario {
+    min-width: 250px;
+  }
+
+   #password {
+    min-width: 250px;
+  }
+
+  .botonIngresar{
+    min-width: 100px;
+    border-radius: 0;
+  }
+
+  .botonVolver{
+    min-width: 100px;
+    border-radius: 0;
+  }
+
+  
+  
  /* VER COMO HACER LA CRUX CUANDO SE ABRE EL NAV 
 .fas fa-bars, 
 .navClose{
@@ -267,16 +293,25 @@ iframe{
 }*/
 
 }
+.imagenInicio{
+  MAX-WIDTH: 500PX;
+}
 /*celulares  mas chicos*/
 @media (max-width : 500px){
-    .imagenInicio{
-      width: 350px;}
-    iframe{
-    width:400px;
+    
+  iframe{
+    width:350px;
     margin:5px;
     height: 400px;
   }
+  .imagenInicio{
+    width:100vw;
+  }
   
+}
+@media (max-width : 100px){
+    .imagenInicio{
+    width:70vw;}
 }
 /*
 .nav-pills .nav-link {
@@ -1585,6 +1620,17 @@ ul.pagination .active a {
 
 .category-block {
   box-shadow: 0px 7px 16px 0px rgba(0, 0, 0, 0.09);
+  padding: 20px 25px;
+  border-radius: 3px;
+  margin-bottom: 25px;
+  min-width: 200px;
+  max-width: 350px;
+  height: 465px;
+  margin: 20px;
+}
+
+.infoServicios:active{
+  color: salmon;
   padding: 20px 25px;
   border-radius: 3px;
   margin-bottom: 25px;
@@ -3069,7 +3115,7 @@ form textarea {
     background-color: #619640;
     border: 1px solid rgba(0, 0, 0, 0.15);
     display: inline-block;
-  
+    width: 50px;
 }
 
 .rectanguloUsuario{
@@ -3081,27 +3127,33 @@ form textarea {
 }
 
 .rectangulo {
-    display: block;
+  display: block;
   margin-left: auto;
-    border-radius: 10px;
-    width:20vw;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    color:#3c6a20;
-    background-color: #fff;
-    background-image: none;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 0;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  border-radius: 10px;
+  width:20vw;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color:#3c6a20;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 
 .contenedorChico2 {
   flex: 1 1 auto;
   padding: 1.25rem;
-display: inline-block;
-  /*macaaa mira wpp*/
+  display: inline-block;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  
 }
 
 .botonIngresar{
@@ -3115,6 +3167,10 @@ display: inline-block;
   background-color: #619640;
   width:8vw;
   height: 4vh;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 0;
 }
 
 .botonVolver{
@@ -3127,7 +3183,12 @@ display: inline-block;
   text-align: center;
   background-color: #619640;
   height: 4vh;
-  padding:5px
+  width: 8vw;
+  padding:10px
+  border-radius: 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .tituloAdmin{
@@ -3248,7 +3309,7 @@ display: inline-block;
   justify-content: center;
 }
 .contenedorProductos{
-  min-width:30vh;
+  min-width:25vh;
   text-align: center;
   background-color: #3c6a20;
   color: #ffff;
@@ -3327,17 +3388,7 @@ display: inline-block;
   padding: 5px;
 }
 
-.botonVolver{
-  text-align: center;
-  border: #3c6a20;;
-  font-family: "Muli", sans-serif;
-  margin-top: 2px;
-  font-size: 15px;
-  color: #3c6a20;
-  text-align: center;
-  background-color: #619640;
-  height: 4vh;
-}
+
 .button:hover {
   background: #619640;
 }

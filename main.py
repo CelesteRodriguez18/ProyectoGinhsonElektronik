@@ -15,17 +15,6 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app = Flask(__name__)
 
 
-app.config['MAIL_SERVER']= 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'info@ginhson.com.ar'
-app.config['MAIL_PASSWORD'] = 'imwmdsovtxinssfg'
-#huellitas123.
-app.config['MAIL_USE_TLS'] = True  
-app.config['MAIL_USE_SSL'] = False
-
-mail = Mail(app)
-
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'esto-es-una-clave-muy-secreta'
 
@@ -214,7 +203,7 @@ def modificar():
     else:
       return redirect('/admin')
 
-@app.route('/modificarImagen',  methods=["POST", "GET"])
+@app.route('/modificarImagen', methods=["POST", "GET", "PUT"])
 def modificarImagen():
   if (request.method == "POST"):
     if session['sesion'] == True:
@@ -223,9 +212,13 @@ def modificarImagen():
       print("hla2")
       print(producto)
       file = request.files["imagen"]
-      #reemplazar = 'C:\fakepath\ '
-      #reemplazo = "./static/products/"
-      #file = imagen.replace(reemplazar, reemplazo)
+     # old_file = file.replace("C:\fakepath", "")
+    #new_file = os.path.join(app.config['UPLOAD_FOLDER'], file)
+      #file = os.rename(old_file, new_file)
+
+
+      
+      print("hla3")
       print(file)
       filename = secure_filename(file.filename)
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -240,7 +233,6 @@ def modificarImagen():
       return jsonify(producto)
     else:
       return redirect('/admin')
-
 
   
 @app.route('/borrarProductosGeneral', methods=["GET", "POST"])
