@@ -272,9 +272,43 @@ iframe{
     min-width: 100px;
     border-radius: 0;
   }
+  
+  .contenedorProductos{
+    min-width: 350px;
+  }
 
+  .contenedorProductos2{
+    min-width: 400px;
+  }
   
-  
+  .tituloForm4{
+   font-size:20px; 
+  }
+
+  .checkBoxLinea1{
+    height: 2px;
+    width: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+  .checkBoxLinea2{
+    height: 2px;
+    width: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+  .checkBoxLinea3{
+    height: 2px;
+    width: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+  .checkBoxLinea4{
+    height: 2px;
+    width: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
  /* VER COMO HACER LA CRUX CUANDO SE ABRE EL NAV 
 .fas fa-bars, 
 .navClose{
@@ -3229,6 +3263,9 @@ form textarea {
   width: 15px;
   margin-right:10px;
   margin-left:10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .checkBoxLinea2{
@@ -3236,6 +3273,9 @@ form textarea {
   width: 15px;
   margin-right:10px;
   margin-left:10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .checkBoxLinea3{
@@ -3243,6 +3283,9 @@ form textarea {
   width: 15px;
   margin-right:10px;
   margin-left:10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .checkBoxLinea4{
@@ -3250,6 +3293,9 @@ form textarea {
   width: 15px;
   margin-right:10px;
   margin-left:10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .label{
@@ -3268,8 +3314,9 @@ form textarea {
   height: 20%;
   border-bottom-style: ridge;
 }
+
 .borrarP{
-  min-width:30vh;
+  min-width:380px;
   text-align: center;
   background-color: #3c6a20;
   color: #ffff;
@@ -3309,7 +3356,6 @@ form textarea {
   justify-content: center;
 }
 .contenedorProductos{
-  min-width:25vh;
   text-align: center;
   background-color: #3c6a20;
   color: #ffff;
@@ -3320,8 +3366,27 @@ form textarea {
   padding-top: 30px;
   margin: 20px;
   max-width:40vw;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
-    
+
+.contenedorProductos2{
+  text-align: center;
+  background-color: #3c6a20;
+  color: #ffff;
+  border-radius: 10px;
+  margin-top: 6vw;
+  padding-top: 50px;
+  padding: 10px;
+  padding-top: 30px;
+  margin: 20px;
+  max-width:40vw;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 }
 .rectanguloForm{
   /*height: calc(100% - 20px);
@@ -3403,7 +3468,7 @@ form textarea {
 }
 
 .botonAdmin2{
-  min-width: 20vw;
+  min-width: 200px;
   text-align: center;
   border: #3c6a20;;
   font-family: "Muli", sans-serif;

@@ -13,7 +13,7 @@
           <div class ="rectanguloEliminarProducto">
               <form action="{{url_for('opcionesBorrarProducto')}}" method="POST" enctype="multipart/form-data">
                 <p> {{ mensaje }}</p>
-                <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea eliminar: </label>
+                <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea eliminar: </label>  <br> <br>
                 <input class="inputForm" required type="text" id="categoria" name="nombreProducto" placeholder="Producto a eliminar" /><br>  <br>
           
                 <button type="submit" class="botonAdmin" onclick="borrarProducto()"> Buscar</button>
