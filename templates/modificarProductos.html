@@ -41,12 +41,14 @@
           <h1 class="tituloForm">MODIFICAR IMAGEN</h1>
         <form action="{{url_for('opcionesModificar')}}" method="POST" enctype="multipart/form-data">
             <p> {{ mensaje }}</p>
-            <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la imagen: </label>
+            <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la imagen: </label> <br>
+          </br>
             <input class="inputForm" required type="text" id="nombreProducto" name="nombreProducto" placeholder="Producto a modificar" /><br>  <br>
-            <button type="submit" class="botonAdmin" onclick="modificarProducto()"> Buscar</button>
+          
+            <input type="submit" class="botonAdmin" value="Buscar"/>
   
           </form>
-  
+        
         
         {% for linea in range (largo) %} 
         <div id="producto">
@@ -73,6 +75,39 @@
           <script src="./static/scripts/main.js"></script>
         </div>
       </div>
+    <br/>
+    <div class="contenedorGrande">
+      <div class="borrarP" id= #borrarProductos> 
+        <div class="formModificar"> 
+          <h1 class="tituloForm">MODIFICAR CATEGORÍA</h1>
+        <form action="{{url_for('opcionesModificar')}}" method="POST" enctype="multipart/form-data">
+            <p> {{ mensaje }}</p>
+            <label for="nombre" class="tituloForm2"> Ingrese el nombre del producto que desea modificar la categoría: </label> <br>  <br>
+            <input class="inputForm" required type="text" id="nombreProducto" name="nombreProducto" placeholder="Producto a modificar" /><br>  <br>
+            <button type="submit" class="botonAdmin" onclick="modificarProducto()"> Buscar</button>
+  
+          </form>
+  
+        
+        {% for linea in range (largo) %} 
+        <div id="producto">
+          <h2 class="producto" style="text-align: center "> {{ productos[linea] }} </h2>
+        <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} " src = "{{ imagenProducto[linea][1:] }}" > 
+        </div>
+         <label for="info"> Ingrese la categoría que desea modificar: </label>
+        <input type="text" id="categoria" name="categoria" placeholder="Categoría" /><br>  <br>
+            <button type="submit" onclick="modificarCategoria('{{ productos[linea] }}')"> Modificar Categoría</button>
+        {% endfor %}
+      
+      </div>
+         
+          <br/>
+        
+          <input type="button" onclick="history.back()" name="Volver" value="Volver"class="botonAdmin" >
+        
+      </div>
+    </div>  
+    
 </div>
 {% endblock content %} 
 </body>

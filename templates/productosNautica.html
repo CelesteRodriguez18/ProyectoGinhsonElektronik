@@ -6,11 +6,11 @@
   
   <div class="scroollAnimalitos">
     <div class="fondoBlur">
-      <h1> <b>Productos Línea Seguridad </b></h1>
+      <h1> <b>Productos Línea Náutica </b></h1>
       <br/>  <br/>
       <div class="tablaAnimalitos">
         {% for linea in range (largo) %} 
-          <form action="{{url_for('productosSeguridad')}}" method="POST">
+          <form action="{{url_for('productosNautica')}}" method="POST">
             
             <div class= "cuadradoAnimalito"> 
               <img id="productos" class="imagenProductos"  alt="{{ productos[linea][1] }} " onclick="mostrarModal('{{ productos[linea][1] }}');  seleccionar('{{ imagenProducto[linea] }}')" src = "{{ imagenProducto[linea] }}">

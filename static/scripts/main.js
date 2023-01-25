@@ -28,6 +28,42 @@ function formularioAdmin() {
   }, });
 }
 
+// MODAL PARA SECCIÓN PRODUCTOS
+function mostrarModal(nombre) {
+  dialog = document.getElementById("modal"+nombre);
+  dialog.showModal();
+}
+
+function ocultarModal(nombre) {
+  dialog = document.getElementById("modal"+nombre);
+  dialog.close();
+}
+
+//
+function seleccionar(productos) {
+  productos = productos
+  console.log(productos)
+  $.ajax({ 
+    url:"/seleccionarSeguridad", 
+    type:"POST", 
+    data: {"productos": productos,
+          }, 
+
+    success: function(response){  
+      console.log(productos)
+      location.href= '/seleccionarSeguridad'
+      datos = (response); 
+      console.log(datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+
+
+
 // FUNCIONES DE ADMINISTRADOR
 
 // IMÁGENES
@@ -136,6 +172,34 @@ function modificar(producto) {
       console.log(error); 
   }, });
 }
+
+function modificarCategoria(producto) {
+  producto = producto
+  categoria = document.getElementById("categoria").value;
+  console.log(producto)
+  console.log(categoria)
+  $.ajax({ 
+    url:"/modificarCategoria", 
+    type:"POST", 
+    data: {"producto": producto,
+           "categoria": categoria,
+          }, 
+
+    success: function(response){ 
+      console.log(producto)
+      datos = (response); 
+      console.log(datos)
+      console.log(producto)
+      alert("Se modificó el producto: "+ datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+
+
 
 function modificarImagen(producto) {
   producto = producto

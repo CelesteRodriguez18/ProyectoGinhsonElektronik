@@ -28,14 +28,97 @@ def index():
   session['Dispositivos'] = "."
   return render_template('index.html')
 
+
+"""PÁGINA PRODUCTOS"""
+
+@app.route('/productosSeguridad', methods=["GET", "POST"])
+def productosSeguridad():
+  conn = sqlite3.connect('ginhsonElektronik.db')
+  q = f"""SELECT * FROM Productos WHERE linea = 'Seguridad' """
+  resu = conn.execute(q)
+
+  productos = []
+  imagenProducto = []
+  for i in resu:
+    productos.append(i)
+  print(productos)
+  for i in productos:
+    imagenProducto.append(i[4])
+  print(imagenProducto)
+  largo = len(productos)
+  conn.commit()      
+  conn.close()
+  
+  return render_template('productosSeguridad.html', productos = productos, largo = largo, imagenProducto = imagenProducto)
+
+@app.route('/productosNautica', methods=["GET", "POST"])
+def productosNautica():
+  conn = sqlite3.connect('ginhsonElektronik.db')
+  q = f"""SELECT * FROM Productos WHERE linea = 'Nautica' """
+  resu = conn.execute(q)
+
+  productos = []
+  imagenProducto = []
+  for i in resu:
+    productos.append(i)
+  print(productos)
+  for i in productos:
+    imagenProducto.append(i[4])
+  print(imagenProducto)
+  largo = len(productos)
+  conn.commit()      
+  conn.close()
+  
+  return render_template('productosNautica.html', productos = productos, largo = largo, imagenProducto = imagenProducto)
+
+@app.route('/productosIndustria', methods=["GET", "POST"])
+def productosIndustria():
+  conn = sqlite3.connect('ginhsonElektronik.db')
+  q = f"""SELECT * FROM Productos WHERE linea = 'Industria' """
+  resu = conn.execute(q)
+
+  productos = []
+  imagenProducto = []
+  for i in resu:
+    productos.append(i)
+  print(productos)
+  for i in productos:
+    imagenProducto.append(i[4])
+  print(imagenProducto)
+  largo = len(productos)
+  conn.commit()      
+  conn.close()
+  
+  return render_template('productosIndustria.html', productos = productos, largo = largo, imagenProducto = imagenProducto)
+
+@app.route('/productosDispositivos', methods=["GET", "POST"])
+def productosDispositivos():
+  conn = sqlite3.connect('ginhsonElektronik.db')
+  q = f"""SELECT * FROM Productos WHERE linea = 'Dispositivos' """
+  resu = conn.execute(q)
+
+  productos = []
+  imagenProducto = []
+  for i in resu:
+    productos.append(i)
+  print(productos)
+  for i in productos:
+    imagenProducto.append(i[4])
+  print(imagenProducto)
+  largo = len(productos)
+  conn.commit()      
+  conn.close()
+  
+  return render_template('productosDispositivos.html', productos = productos, largo = largo, imagenProducto = imagenProducto)
+
+"""FUNCIONES ADMINISTRADOR"""
+
 @app.route('/admin', methods=["GET", "POST"])
 def admin():
   if session['sesion'] == True:
     return redirect('/opcionesAdmin')
   else:
-    print("def admin con sesion cerrada")
     return render_template('admin.html')
-
 
 @app.route('/ingreso', methods=["GET", "POST"])
 def ingreso():
@@ -51,7 +134,6 @@ def ingreso():
       if len(lista) != 0:
         if lista[0][1] != session['usuario'] or lista[0][2] != session['contraseña']:
           mensaje = 'Los datos ingresados son incorrectos'
-          print('Los datos ingresados son incorrectos')
           return render_template('admin.html', mensaje = mensaje)
       else:
         mensaje = 'Los datos ingresados son incorrectos'
@@ -69,12 +151,10 @@ def ingreso():
 
 @app.route('/opcionesAdmin', methods=["GET", "POST"])
 def opcionesAdmin():
-  print("opciones Admin")
   return render_template('opcionesAdmin.html')
 
 @app.route('/agregarProductos', methods=["GET", "POST"])
 def agregarProductos():
-  print("agregar productos")
   if (request.method == "POST"):
     if session['sesion'] == True:
       nombre = request.form["nombre"]
@@ -84,9 +164,7 @@ def agregarProductos():
       file = request.files['imagen']
       filename = secure_filename(file.filename)
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-      print(file_path)
       file.save(file_path)
-      print(request.form.get('linea'))
       
       if request.form.get('linea') == 'Seguridad':
         linea = "Seguridad"
@@ -98,7 +176,6 @@ def agregarProductos():
         linea = "Dispositivos"
       else:
         mensaje = "¡Elija un checkbox!"
-        print(mensaje)
         return render_template('agregarProductos.html',
                                mensaje = mensaje)
       
@@ -112,7 +189,7 @@ def agregarProductos():
         descripcion = True
       
       if resu.fetchone():
-        mensaje2 = "Por favor renombre el archivo, el anterior ya existe."
+        mensaje2 = "Por favor renombre el archivo de la imagen, el anterior ya existe en la base de datos."
         return render_template('agregarProductos.html', mensaje2 = mensaje2)
       else:  
         r = f"""INSERT INTO Productos (nombre, linea, descripcion, imagen, informacion, categoria) VALUES ('{nombre}', '{linea}', '{descripcion}', '{file_path}', '{informacion}', '{categoria}');"""
@@ -148,11 +225,6 @@ def modificarProductos():
 @app.route('/opcionesModificar',  methods=["GET", "POST"])
 def opcionesModificar():
   if (request.method == "POST"):
-    print('hola')
-    '''
-    producto = request.form["nombreProducto"]
-    print(producto)
-    '''
     if session['sesion'] == True:
       if (request.form["nombreProducto"] != ""):
         producto = request.form["nombreProducto"]
@@ -187,21 +259,41 @@ def opcionesModificar():
 def modificar():
   if (request.method == "POST"):
     if session['sesion'] == True:
-      print("hla")
       producto = request.form["producto"]
       info = request.form["info"]
-      print("hla2")
       print(producto)
       print(info)
+      if info == "":
+        descripcion = False
+      else:
+        descripcion = True
       conn = sqlite3.connect('ginhsonElektronik.db')     
-      q = f"""UPDATE Productos SET informacion = '{info}' WHERE nombre = '{producto}'"""
+      q = f"""UPDATE Productos SET informacion = '{info}' and descripcion = '{descripcion}' WHERE nombre = '{producto}'"""
       conn.execute(q)
       conn.commit()      
       conn.close()
-      print(producto)
       return jsonify(producto)
     else:
       return redirect('/admin')
+
+@app.route('/modificarCategoria',  methods=["POST", "GET"])
+def modificarCategoria():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      producto = request.form["producto"]
+      categoria = request.form["categoria"]
+      print(producto)
+      print(categoria)
+      conn = sqlite3.connect('ginhsonElektronik.db')     
+      q = f"""UPDATE Productos SET categoria = '{categoria}' WHERE nombre = '{producto}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      return jsonify(producto)
+    else:
+      return redirect('/admin')
+
+
 
 @app.route('/modificarImagen', methods=["POST", "GET", "PUT"])
 def modificarImagen():
@@ -211,15 +303,11 @@ def modificarImagen():
       producto = request.form["producto"]
       print("hla2")
       print(producto)
-      file = request.files["imagen"]
-     # old_file = file.replace("C:\fakepath", "")
-    #new_file = os.path.join(app.config['UPLOAD_FOLDER'], file)
-      #file = os.rename(old_file, new_file)
-
-
-      
+      file = request.files["imagen"] # EL ERROR ES ACÁ  
       print("hla3")
       print(file)
+      if "C:\fakepath" in file:
+        file = file.remove('C:\fakepath')
       filename = secure_filename(file.filename)
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
       file.save(file_path)
@@ -233,7 +321,6 @@ def modificarImagen():
       return jsonify(producto)
     else:
       return redirect('/admin')
-
   
 @app.route('/borrarProductosGeneral', methods=["GET", "POST"])
 def borrarProductosGeneral():
@@ -246,30 +333,24 @@ def borrarProductosGeneral():
 @app.route('/opcionesBorrarProducto',  methods=["GET", "POST"])
 def opcionesBorrarProducto():
   if (request.method == "POST"):
-    print('hola')
     producto = request.form["nombreProducto"]
-    print(producto)
     if session['sesion'] == True:
       if (request.form["nombreProducto"] != "" ):
         producto = request.form["nombreProducto"]
         conn = sqlite3.connect('ginhsonElektronik.db')
         producto = producto.capitalize()
         r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
-        print(producto)
         resu = conn.execute(r)
         lista = resu.fetchall()
         nombreProducto = []
         imagenProducto = []
         for i in lista:
           nombreProducto.append(i[0])
-        print(nombreProducto)
         for i in lista:
           imagenProducto.append(i[-1])
-        print(imagenProducto)
         largo = len(nombreProducto)
         conn.commit()      
         conn.close()
-        print(imagenProducto)
         return render_template('borrarProductosGeneral.html', productos = nombreProducto, imagenProducto = imagenProducto, largo = largo)
       else:
         mensaje = "Ingrese un nombre"
@@ -279,32 +360,19 @@ def opcionesBorrarProducto():
   else:
     return redirect('/borrarProductosGeneral', largo = largo)
 
-
-
 @app.route('/eliminar', methods=["GET", "POST"])
 def eliminar():
   if (request.method == "POST"):
     if session['sesion'] == True:
-      print("hla")
       producto = request.form["producto"]
-      print("hla2")
-      print(producto)
       conn = sqlite3.connect('ginhsonElektronik.db')
-      print("hla3")
       q = f"""DELETE FROM Productos WHERE nombre = '{producto}'"""
       conn.execute(q)
       conn.commit()      
       conn.close()
-      print(producto)
       return jsonify(producto)
     else:
       return redirect('/admin')
 
 
 app.run(host='0.0.0.0', port=81)
-
-"""Pagina Productos"""
-
-@app.route('/productosSeguridad')
-def productosSeguridad():
-  return render_template('productosSeguridad.html')
