@@ -302,3 +302,9 @@ def eliminar():
 
 
 app.run(host='0.0.0.0', port=81)
+
+"""Pagina Productos"""
+
+@app.route('/productosSeguridad')
+def productosSeguridad():
+  return render_template('productosSeguridad.html')
