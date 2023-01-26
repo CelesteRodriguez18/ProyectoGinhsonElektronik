@@ -377,6 +377,23 @@ iframe{
     font-weight: 300;
     font-size: 1px;
   }
+
+  .textoFooter{
+    max-width: 200px;
+    font-size: 10px;
+  }
+
+  .imagenCel{
+    max-width: 50px;
+  }
+
+  .numeroCelular{
+     vertical-align: text-bottom;
+  }
+
+  .imagIg{
+    max-width: 50px;
+  }
   
  /* VER COMO HACER LA CRUX CUANDO SE ABRE EL NAV 
 .fas fa-bars, 
@@ -3755,4 +3772,36 @@ form textarea {
   padding: 5px;
   margin-bottom: 30px;
   margin-left: 20px;
+}
+
+/*Footer*/
+
+.contenidoFooter{
+  display: flex;
+}
+
+.textoFooter{
+  width: 70%;
+  margin-left: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.redesSociales{
+  width:30%;
+  margin-left: 50px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.imagenCel{
+  margin-left: 10px;
+  margin-rigth: 10px;
+}
+
+.imagenIg{
+  margin-left: 10px;
+  margin-rigth: 10px;
 }
