@@ -198,6 +198,80 @@ function modificarCategoria(producto) {
   }, });
 }
 
+function modificarLinea(producto) {
+  producto = producto
+  linea = document.getElementById("linea").value;
+  console.log(producto)
+  console.log(linea)
+  $.ajax({ 
+    url:"/modificarLinea", 
+    type:"POST", 
+    data: {"producto": producto,
+           "linea": linea,
+          }, 
+
+    success: function(response){ 
+      console.log(producto)
+      datos = (response); 
+      console.log(datos)
+      console.log(producto)
+      alert("Se modificó el producto: "+ datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+function modificarLinea(producto) {
+  producto = producto
+  linea = document.getElementById("linea").value;
+  console.log(producto)
+  console.log(linea)
+  $.ajax({ 
+    url:"/modificarLinea", 
+    type:"POST", 
+    data: {"producto": producto,
+           "linea": linea,
+          }, 
+
+    success: function(response){ 
+      console.log(producto)
+      datos = (response); 
+      console.log(datos)
+      console.log(producto)
+      alert("Se modificó el producto: "+ datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+function modificarNombre(producto) {
+  producto = producto
+  nuevoNombre = document.getElementById("nuevoNombre").value;
+  console.log(producto)
+  console.log(nuevoNombre)
+  $.ajax({ 
+    url:"/modificarNombre", 
+    type:"POST", 
+    data: {"producto": producto,
+           "nuevoNombre": nuevoNombre,
+          }, 
+
+    success: function(response){ 
+      console.log(producto)
+      datos = (response); 
+      console.log(datos)
+      console.log(producto)
+      alert("Se modificó el producto: "+ datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
 
 
 

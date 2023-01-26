@@ -21,12 +21,12 @@
               </form>
           
             {% for linea in range (largo) %} 
-            <div id="producto" onclick="eliminar('{{ productos[linea] }}')">
+            <div id="producto">
               <h2 class="producto" style="text-align: center " > {{ productos[linea] }} </h2>
             <img id="imagenProducto" class="imagenProducto"  alt="{{ productos[linea] }} "  src="{{imagenProducto[linea][1:] }}""> 
             </div>
       
-            <button type="submit" id="{{ productos[linea] }}" onclick="eliminar('{{ productos[linea] }}')" > <img id="imagenProducto" class="imagenProducto" alt="{{ productos[linea] }}" src="{{ imagenProducto[linea][1:] }}"> {{ productos[linea] }} </button>
+            <button type="submit" id="{{ productos[linea] }}" onclick="eliminar('{{ productos[linea] }}')" >  Eliminar Producto </button>
             
             {% endfor %}
           

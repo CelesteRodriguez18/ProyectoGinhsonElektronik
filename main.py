@@ -1,12 +1,6 @@
-from flask import Flask, render_template, request, jsonify, session, current_app, redirect
+from flask import Flask, render_template, request, jsonify, session, redirect
 import sqlite3, os
-from os.path import abspath, dirname, join
 from werkzeug.utils import secure_filename
-
-from email.message import EmailMessage
-import smtplib
-
-from flask_mail import Message, Mail  
 
 UPLOAD_FOLDER = './static/products'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -41,10 +35,8 @@ def productosSeguridad():
   imagenProducto = []
   for i in resu:
     productos.append(i)
-  print(productos)
   for i in productos:
     imagenProducto.append(i[4])
-  print(imagenProducto)
   largo = len(productos)
   conn.commit()      
   conn.close()
@@ -61,10 +53,8 @@ def productosNautica():
   imagenProducto = []
   for i in resu:
     productos.append(i)
-  print(productos)
   for i in productos:
     imagenProducto.append(i[4])
-  print(imagenProducto)
   largo = len(productos)
   conn.commit()      
   conn.close()
@@ -81,10 +71,8 @@ def productosIndustria():
   imagenProducto = []
   for i in resu:
     productos.append(i)
-  print(productos)
   for i in productos:
     imagenProducto.append(i[4])
-  print(imagenProducto)
   largo = len(productos)
   conn.commit()      
   conn.close()
@@ -96,19 +84,15 @@ def productosDispositivos():
   conn = sqlite3.connect('ginhsonElektronik.db')
   q = f"""SELECT * FROM Productos WHERE linea = 'Dispositivos' """
   resu = conn.execute(q)
-
   productos = []
   imagenProducto = []
   for i in resu:
     productos.append(i)
-  print(productos)
   for i in productos:
     imagenProducto.append(i[4])
-  print(imagenProducto)
   largo = len(productos)
   conn.commit()      
   conn.close()
-  
   return render_template('productosDispositivos.html', productos = productos, largo = largo, imagenProducto = imagenProducto)
 
 """FUNCIONES ADMINISTRADOR"""
@@ -148,7 +132,6 @@ def ingreso():
   else:
     return render_template('admin.html')
 
-
 @app.route('/opcionesAdmin', methods=["GET", "POST"])
 def opcionesAdmin():
   return render_template('opcionesAdmin.html')
@@ -158,7 +141,6 @@ def agregarProductos():
   if (request.method == "POST"):
     if session['sesion'] == True:
       nombre = request.form["nombre"]
-      nombre = nombre.capitalize()
       categoria = request.form["categoria"]
       informacion = request.form["informacion"]
       file = request.files['imagen']
@@ -229,23 +211,18 @@ def opcionesModificar():
       if (request.form["nombreProducto"] != ""):
         producto = request.form["nombreProducto"]
         conn = sqlite3.connect('ginhsonElektronik.db')
-        producto = producto.capitalize()
         r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
-        print(producto)
         resu = conn.execute(r)
         lista = resu.fetchall()
         nombreProducto = []
         imagenProducto = []
         for i in lista:
           nombreProducto.append(i[0])
-        print(nombreProducto)
         for i in lista:
           imagenProducto.append(i[-1])
-        print(imagenProducto)
         largo = len(nombreProducto)
         conn.commit()      
         conn.close()
-        print(imagenProducto)
         return render_template('modificarProductos.html', productos = nombreProducto, imagenProducto = imagenProducto, largo = largo)
       else:
         mensaje = "Ingrese un nombre"
@@ -261,8 +238,6 @@ def modificar():
     if session['sesion'] == True:
       producto = request.form["producto"]
       info = request.form["info"]
-      print(producto)
-      print(info)
       if info == "":
         descripcion = False
       else:
@@ -293,18 +268,48 @@ def modificarCategoria():
     else:
       return redirect('/admin')
 
+@app.route('/modificarLinea',  methods=["POST", "GET"])
+def modificarLinea():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      producto = request.form["producto"]
+      linea = request.form["linea"]
+      print(producto)
+      print(linea)
+      conn = sqlite3.connect('ginhsonElektronik.db')     
+      q = f"""UPDATE Productos SET linea = '{linea}' WHERE nombre = '{producto}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      return jsonify(producto)
+    else:
+      return redirect('/admin')
 
+@app.route('/modificarNombre',  methods=["POST", "GET"])
+def modificarNombre():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      producto = request.form["producto"]
+      nuevoNombre = request.form["nuevoNombre"]
+      print(producto)
+      print(nuevoNombre)
+      conn = sqlite3.connect('ginhsonElektronik.db')     
+      q = f"""UPDATE Productos SET nombre = '{nuevoNombre}' WHERE nombre = '{producto}'"""
+      conn.execute(q)
+      conn.commit()      
+      conn.close()
+      return jsonify(producto)
+    else:
+      return redirect('/admin')
 
 @app.route('/modificarImagen', methods=["POST", "GET", "PUT"])
 def modificarImagen():
   if (request.method == "POST"):
     if session['sesion'] == True:
-      print("hla")
       producto = request.form["producto"]
-      print("hla2")
       print(producto)
       file = request.files["imagen"] # EL ERROR ES ACÁ  
-      print("hla3")
+      print("hla")
       print(file)
       if "C:\fakepath" in file:
         file = file.remove('C:\fakepath')
@@ -317,7 +322,6 @@ def modificarImagen():
       conn.execute(q)
       conn.commit()      
       conn.close()
-      print(producto)
       return jsonify(producto)
     else:
       return redirect('/admin')
@@ -338,7 +342,6 @@ def opcionesBorrarProducto():
       if (request.form["nombreProducto"] != "" ):
         producto = request.form["nombreProducto"]
         conn = sqlite3.connect('ginhsonElektronik.db')
-        producto = producto.capitalize()
         r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
         resu = conn.execute(r)
         lista = resu.fetchall()
@@ -346,9 +349,11 @@ def opcionesBorrarProducto():
         imagenProducto = []
         for i in lista:
           nombreProducto.append(i[0])
+        print(nombreProducto)
         for i in lista:
           imagenProducto.append(i[-1])
         largo = len(nombreProducto)
+        print(largo)
         conn.commit()      
         conn.close()
         return render_template('borrarProductosGeneral.html', productos = nombreProducto, imagenProducto = imagenProducto, largo = largo)
