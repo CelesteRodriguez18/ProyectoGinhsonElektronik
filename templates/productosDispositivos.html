@@ -1,46 +1,47 @@
 {% extends 'base.html' %}
 <body>
   {% block content %}
-  <br/>  <br/>
-  <br/>  <br/>
-  
-  <div class="scroollAnimalitos">
-    <div class="fondoBlur">
-      <h1> <b>Productos Línea Dispositivos </b></h1>
-      <br/>  <br/>
-      <div class="tablaAnimalitos">
-        {% for linea in range (largo) %} 
-          <form action="{{url_for('productosDispositivos')}}" method="POST">
+  <div class="contenedorProductosGrande">
+    <br/>  <br/>
+    <br/>  <br/>
+    
+    <div class="scroollProductos">
+      <div class="fondoBlur">
+        <p class="tituloCategoria"> <b>Productos</b> > Línea Dispositivos </p>
+        <br/>  <br/>
+        <div class="tablaProductos">
+          {% for linea in range (largo) %} 
+            <form action="{{url_for('productosDispositivos')}}" method="POST">
+              
+              <div class= "cuadradoProductos"> 
+                <img id="productos" class="imagenProductos"  alt="{{ productos[linea][1] }} " onclick="mostrarModal('{{ productos[linea][1] }}');  seleccionar('{{ imagenProducto[linea] }}')" src = "{{ imagenProducto[linea] }}">
+                <h2 class="nombreProducto" style="
+        text-align: center "> {{ productos[linea][1] }} </h2>
+              </div>
+              <dialog class= "formPerfil"id="modal{{ productos[linea][1] }}">
+                <form  method="dialog">
+                  <p>
+                    <label for="favAnimal"><b>Producto seleccionado:</b></label>
+                  </p>
+                  <p id="perfil"><b>Nombre: </b> &nbsp;  {{ productos[linea][1] }}  </p>
+                  <p id="perfil"><b>Linea: </b>  &nbsp;  {{ productos[linea][2] }}  </p>
+                  <p id="perfil"><b>Categoría: </b> &nbsp;  {{ productos[linea][6] }}  </p>
+                  <p id="perfil"><b>Información: </b> &nbsp;  {{ productos[linea][5] }}  </p> <br/>
+                  <div>
+                    <button id="botonAdmin1" onclick="ocultarModal('{{ productos[linea][1] }}')" type="reset">Cerrar</button>
+                </form>
+              </dialog>
             
-            <div class= "cuadradoAnimalito"> 
-              <img id="productos" class="imagenProductos"  alt="{{ productos[linea][1] }} " onclick="mostrarModal('{{ productos[linea][1] }}');  seleccionar('{{ imagenProducto[linea] }}')" src = "{{ imagenProducto[linea] }}">
-              <h2 class="nombreMascota" style="
-      text-align: center "> {{ productos[linea][1] }} </h2>
-            </div>
-            <dialog class= "formPerfil"id="modal{{ productos[linea][1] }}">
-              <form  method="dialog">
-                <p>
-                  <label for="favAnimal">Producto seleccionado:</label>
-                </p>
-                <p id="perfil">Nombre: {{ productos[linea][1] }}  </p>
-                <p id="perfil">Linea: {{ productos[linea][2] }}  </p>
-                <p id="perfil">Categoría: {{ productos[linea][6] }}  </p>
-                <p id="perfil">Información: {{ productos[linea][5] }}  </p> <br/>
-                <div>
-                  <button id="botonAdmin1" onclick="ocultarModal('{{ productos[linea][1] }}')" type="reset">Cerrar</button>
-              </form>
-              </div >
-            </dialog>
-          
-            {% endfor %}
-        </form>
+              {% endfor %}
+          </form>
+        </div>
       </div>
+      <!-- Fin Modal -->
     </div>
-    <!-- Fin Modal -->
+  <input type="button" onclick="history.back()" name="Volver" value="Volver" class="botonAdmin"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+            </script>
+            <script src="./static/scripts/main.js"></script>
   </div>
-<input type="button" onclick="history.back()" name="Volver" value="Volver" class="botonAdmin"/>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-          </script>
-          <script src="./static/scripts/main.js"></script>
-{% endblock content %}
+  {% endblock content %}
 </body>
