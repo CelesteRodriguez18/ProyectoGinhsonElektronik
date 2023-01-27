@@ -235,6 +235,16 @@ iframe{
   
 }
 /*tamaño dispositivo pequeño celular*/
+
+
+/* viendo como adaptar modal*/
+/*@media screen and (max-width : 800px){
+  .formPerfil{
+    width:90%;
+  }
+}*/
+
+
 @media (max-width : 858px){
   .infoMenu{
     text-align: center;
@@ -360,10 +370,10 @@ iframe{
     margin-right: 2px;
     margin-left: 2px;
   }
-
+/*
   .formPerfil{
     width: 80%;
-  }
+  }*/
 
   .cuadradoProductos{
     max-width: 350px;
@@ -3678,22 +3688,28 @@ form textarea {
 }
 
 .formPerfil{
-    background-color: #ffff;
-    background-opacity: border-radius: 12px;
-    border: #ffff;
-    border-radius: 20px;
-    min-width: 22%;
-    margin: auto;
-    padding: 15px;
-    min-width:350px;
+  /* VIENDO COMO HACER MODAL RESPONSIVE
+  width:100%;
+  max-width:400px;
+  padding:20px;
+  background-color:#ffff
+  border-radius: 4px;*/
+  background-color: #ffff;
+  background-opacity: border-radius: 12px;
+  border: #ffff;
+  border-radius: 20px;
+  min-width: 22%;
+  margin: auto;
+  padding: 15px;
+  min-width:350px;
 }
 
-@media (min-width: 858px){
+/*@media (min-width: 858px){
   formPerfil{
     width: 40%;
   }
 }
-
+*/
 
 #perfil{
   /*text-align: justify;*/

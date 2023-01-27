@@ -6,7 +6,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <!--favicon-->
+  <link rel="icon" type="image/png" href="./static/img/favicon.png" /> 
 	<title>GINHSON ELEKTRONIK</title>
 
 	
@@ -161,6 +164,12 @@
 			</div>
 		</div>
   </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000
+    });
+  </script>
 </body>
 
 </html>

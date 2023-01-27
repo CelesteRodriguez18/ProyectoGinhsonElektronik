@@ -13,7 +13,7 @@
           {% for linea in range (largo) %} 
             <form action="{{url_for('productosIndustria')}}" method="POST">
               
-              <div class= "cuadradoProductos"> 
+              <div class= "cuadradoProductos" data-aos="fade-up"> 
                 <img id="productos" class="imagenProductos"  alt="{{ productos[linea][1] }} " onclick="mostrarModal('{{ productos[linea][1] }}');  seleccionar('{{ imagenProducto[linea] }}')" src = "{{ imagenProducto[linea] }}">
                 <h2 class="nombreProducto" style="
         text-align: center "> {{ productos[linea][1] }} </h2>
