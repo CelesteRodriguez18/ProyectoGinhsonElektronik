@@ -162,7 +162,7 @@ nav{
   width: 100%;
   z-index: 997;
   transition: all 0.5s;
-  box-shadow: 0px 0px 30px rgb(127 137 161 / 30%);
+  box-shadow: 0px 0px 10px grey;
   position: fixed;
 }
 .enlace{
@@ -174,6 +174,8 @@ nav{
   height: 75px;
   transition: none;
   margin-top: 5px;
+  position: fixed;
+  z-index: -3;
 }
 nav ul {
   float:right;
@@ -202,9 +204,48 @@ li a.active,li a:hover{
   line-height: 80px;
   margin-right:40px;
   cursor: pointer;
-  display:none
+  display:none}
+/* 
+.menubtn{
+  width:50px;
+  height:6px;
+  background:#fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba (255, 101, 47,.2);
+  transition: all .5s ease-in-out;
+}
+.menubtn ::before, .menubtn ::after{
+  content:'';
+  position:absolute;
+  width: 50px;
+  height: 6px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba (255, 101, 47,.2);
+  transition: all .5s ease-in-out
+}
+.menubtn ::before{
+  transform: translateY(-16px);
+}
+.menubtn ::after{
+  transform: translateY(16px);
+}
+.checkbtn.open .menubtn{
+  transform:translateX(-50px);
+  background:transparent;
+  box-shadow:none;
+
+.checkbtn.open .menubtn::before{
+  transform: rotate(45deg) translate (35px, -35px);
   
 }
+
+.checkbtn.open .menubtn::after{
+  transform: rotate(-45deg) translate (35px, 35px);
+  
+}
+}
+*/
 #check{
   display:none;
 }
@@ -235,14 +276,6 @@ iframe{
   
 }
 /*tamaño dispositivo pequeño celular*/
-
-
-/* viendo como adaptar modal*/
-/*@media screen and (max-width : 800px){
-  .formPerfil{
-    width:90%;
-  }
-}*/
 
 
 @media (max-width : 858px){
@@ -286,6 +319,9 @@ iframe{
   }
   #check:checked ~ ul{
     left: 0;
+  }
+  #check:checked{
+    overflow:hidden;
   }
   
   p{
@@ -370,10 +406,6 @@ iframe{
     margin-right: 2px;
     margin-left: 2px;
   }
-/*
-  .formPerfil{
-    width: 80%;
-  }*/
 
   .cuadradoProductos{
     max-width: 350px;
@@ -398,7 +430,7 @@ iframe{
   }
 
   .numeroCelular{
-     vertical-align: text-bottom;
+      align-items:center;
   }
 
   .imagIg{
@@ -426,9 +458,18 @@ iframe{
 .imagenInicio{
   MAX-WIDTH: 500PX;
 }
+
 /*celulares  mas chicos*/
 @media (max-width : 500px){
-    
+  .celular{
+    display:grid;
+  }
+  .instagram{
+    display:grid;
+  }
+  .formPerfil{
+    max-width: 350px;
+  }
   iframe{
     width:350px;
     margin:5px;
@@ -440,6 +481,8 @@ iframe{
 
    .cuadradoProductos{
     max-width: 300px;
+    /* sacar para que se vea todo bien el cuadrado */
+    min-height: 500px;
   }
 
   .imagenProductos{
@@ -3666,7 +3709,7 @@ form textarea {
 }
 
 .imagenProductos{
-    width: 373px;
+    width: 350px;
     height: 320px;
     border-radius: 5px;
     cursor: pointer;
@@ -3698,18 +3741,10 @@ form textarea {
   background-opacity: border-radius: 12px;
   border: #ffff;
   border-radius: 20px;
-  min-width: 22%;
   margin: auto;
   padding: 15px;
-  min-width:350px;
+  width: 500px;
 }
-
-/*@media (min-width: 858px){
-  formPerfil{
-    width: 40%;
-  }
-}
-*/
 
 #perfil{
   /*text-align: justify;*/
