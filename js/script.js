@@ -1,3 +1,13 @@
+var menu = document.querySelector('.fas fa-bars');
+
+// method
+function toggleMenu (event) {
+  menu.toggleClass('fas fa-times');}
+  /*this.classList.toggle('fas fa-times');}*/
+
+menu.addEventListener('click', toggleMenu, false);
+
+
 /*const menuBtn = document.querySelector('.menubtn');
 let menuOpen = false;
 menuBtn.addEventListener('click',() =>{
@@ -9,6 +19,32 @@ menuBtn.addEventListener('click',() =>{
     menuOpen = false;
   }
 });*/
+
+/*PROBANDO
+
+// selector
+var menu = document.querySelector('.hamburger');
+
+// method
+function toggleMenu (event) {
+  this.classList.toggle('is-active');
+  document.querySelector( ".menuppal" ).classList.toggle("is_active");
+  event.preventDefault();
+}
+
+// event
+menu.addEventListener('click', toggleMenu, false);
+
+//Solución con jQUery
+/*$(document).ready(function(){
+	$('.hamburger').click(function() {
+		$('.hamburger').toggleClass('is-active');
+		$('.menuresponsive').toggleClass('is-active');
+		return false;
+	});
+});
+
+FIN DE PROBANDO*/
 
 (function ($) {
   'use strict';

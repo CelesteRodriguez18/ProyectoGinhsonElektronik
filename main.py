@@ -380,4 +380,65 @@ def eliminar():
       return redirect('/admin')
 
 
+# PRUEBA MODIFICAR IMAGEN EN OTRO HTML
+
+@app.route('/modificaImagen', methods=["GET", "POST"])
+def modificaImagen():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      nombre = request.form["nombre"]
+      file = request.files['imagen']
+      filename = secure_filename(file.filename)
+      file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+      file.save(file_path)
+           
+      conn = sqlite3.connect('ginhsonElektronik.db')
+      q = f"""SELECT imagen FROM Productos WHERE imagen = '{file_path}'"""
+      resu = conn.execute(q)
+
+      if resu.fetchone():
+        mensaje2 = "Por favor renombre el archivo de la imagen, el anterior ya existe en la base de datos."
+        return render_template('modificarImagen.html', mensaje2 = mensaje2)
+      else:  
+        r = f"""UPDATE Productos SET imagen = '{file_path}' WHERE nombre = '{nombre}'"""
+        conn.execute(r)
+        conn.commit()
+        conn.close()
+      
+      return render_template('modificarImagen.html')
+    else:
+      return redirect('/admin')
+  else:
+    return render_template('modificarImagen.html')
+
+
+@app.route('/modificacionImagenBuscador',  methods=["GET", "POST"])
+def modificacionImagenBuscador():
+  if (request.method == "POST"):
+    if session['sesion'] == True:
+      if (request.form["nombreProducto"] != ""):
+        producto = request.form["nombreProducto"]
+        conn = sqlite3.connect('ginhsonElektronik.db')
+        r = f"""SELECT nombre, imagen FROM Productos where nombre = '{producto}'"""
+        resu = conn.execute(r)
+        lista = resu.fetchall()
+        nombreProducto = []
+        imagenProducto = []
+        for i in lista:
+          nombreProducto.append(i[0])
+        for i in lista:
+          imagenProducto.append(i[-1])
+        largo = len(nombreProducto)
+        conn.commit()      
+        conn.close()
+        return render_template('modificarImagen.html', productos = nombreProducto, imagenProducto = imagenProducto, largo = largo)
+      else:
+        mensaje = "Ingrese un nombre"
+        return render_template('modificarImagen.html', mensaje = mensaje, largo = largo)
+    else:
+      return redirect('/admin')  
+  else:
+    return redirect('/modificaImagen', largo = largo)
+
+
 app.run(host='0.0.0.0', port=81)

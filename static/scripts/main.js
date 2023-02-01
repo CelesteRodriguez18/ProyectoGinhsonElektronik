@@ -319,6 +319,26 @@ function modificarProducto() {
 
 }
 
+function modificaProducto() {
+  nombreProducto = document.getElementById("nombreProducto")
+  console.log(nombreProducto)
+  
+  $.ajax({ 
+    url:"/modificacionImagenBuscador", 
+    type:"POST", 
+    data: {"nombreProducto": nombreProducto,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+
 /* FORMULARIO CONTACTO
 
 function formulario() {
