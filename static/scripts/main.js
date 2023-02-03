@@ -223,31 +223,6 @@ function modificarLinea(producto) {
   }, });
 }
 
-function modificarLinea(producto) {
-  producto = producto
-  linea = document.getElementById("linea").value;
-  console.log(producto)
-  console.log(linea)
-  $.ajax({ 
-    url:"/modificarLinea", 
-    type:"POST", 
-    data: {"producto": producto,
-           "linea": linea,
-          }, 
-
-    success: function(response){ 
-      console.log(producto)
-      datos = (response); 
-      console.log(datos)
-      console.log(producto)
-      alert("Se modificó el producto: "+ datos)
-      
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-}
-
 function modificarNombre(producto) {
   producto = producto
   nuevoNombre = document.getElementById("nuevoNombre").value;
@@ -258,33 +233,6 @@ function modificarNombre(producto) {
     type:"POST", 
     data: {"producto": producto,
            "nuevoNombre": nuevoNombre,
-          }, 
-
-    success: function(response){ 
-      console.log(producto)
-      datos = (response); 
-      console.log(datos)
-      console.log(producto)
-      alert("Se modificó el producto: "+ datos)
-      
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-}
-
-
-
-function modificarImagen(producto) {
-  producto = producto
-  imagen = document.getElementById("imagen").files[0].name;
-  console.log(producto)
-  console.log(imagen)
-  $.ajax({ 
-    url:"/modificarImagen", 
-    type:"POST", 
-    data: {"producto": producto,
-           "imagen": imagen,
           }, 
 
     success: function(response){ 
@@ -318,66 +266,3 @@ function modificarProducto() {
   }, });
 
 }
-
-function modificaProducto() {
-  nombreProducto = document.getElementById("nombreProducto")
-  console.log(nombreProducto)
-  
-  $.ajax({ 
-    url:"/modificacionImagenBuscador", 
-    type:"POST", 
-    data: {"nombreProducto": nombreProducto,
-          }, 
-
-    success: function(response){  
-      datos = response
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-
-
-/* FORMULARIO CONTACTO
-
-function formulario() {
-  var nombre = document.getElementById("nombre").value 
-  var correo = document.getElementById("correo").value 
-  var mensaje = document.getElementById("mensaje").value  
-
-  console.log(nombre)
-  console.log(correo)
-  console.log(mensaje)
-
-  var contieneArroba = false
-  if (correo.includes('@')){
-    contieneArroba = true
-  }
-  if (nombre.length == 0 || correo.length == 0 || mensaje.length == 0 || contieneArroba == false)  {
-    alert("Faltan ingresar datos")
-    return 0;
-  }
-  
-  
-  $.ajax({ 
-    url:"/contacto", 
-    type:"POST", 
-    data: {"nombre": nombre,
-          "correo": correo,
-          "mensaje": mensaje,
-          }, 
-
-    success: function(response){  
-      datos = response
-      //if(datos == true) {
-      alert(`Se registró su respuesta`)
-      location.href= '/'
-      //}
-    }, 
-    error: function(error){ 
-      console.log(error); 
-  }, });
-
-}
-*/
